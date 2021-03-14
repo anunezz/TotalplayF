@@ -18,8 +18,10 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             FirstSesionSeeder::class,
             CatStateSeeder::class,
-            CatCitySeeder::class,
             CatNamePacks::class,
+            CatTripleDobleSeeder::class,
+            CatPackFrontierSeeder::class,
+            CatCitySeeder::class,
             CatWallpaperSedder::class,
             //ImgWallpaperSeeeder::class,
             WallpaperSeeder::class

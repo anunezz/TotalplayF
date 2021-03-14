@@ -1,10 +1,11 @@
 <template>
 <div>
-    <div style="width: 100%; padding-bottom: 3.5%;" v-if="items.page != 'home'">
-        <img style="width: 100%; max-height: 430px;" :src="items.img.banner" :alt="items.img.banner">
-    </div>
-
     <div class="container">
+
+        <div :style="'width: 100%; '+ mediaBanner" v-if="items.page != 'home'">
+            <img style="width: 100%; max-height: 500px;" :src="items.img.banner" :alt="items.img.banner">
+        </div>
+
         <div class="row">
             <div class="col-md-12" v-if="items.page === 'home'">
                 <div class="col-md-12">
@@ -18,8 +19,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12" v-else>
-                <img style="height: 150px; width: 100%; display:block; margin: 0px auto;"  :src="items.img.triple" :alt="items.img.triple">
+            <div class="py-4 col-md-12" v-else>
+                <img :style="mediaImgTitle+' display:block; margin: 0px auto;'"  :src="items.img.triple" :alt="items.img.triple">
             </div>
 
             <div class="col-md-12 py-3" v-if="items.page === 'home'">
@@ -28,9 +29,9 @@
             </div>
 
             <card-component :items="items.catPromotion" v-if="items.page === 'home'" />
-            <card-component :items="items.catPromotion" v-if="items.page !== 'home'" />
+            <card-component :items="catTriple" v-if="items.page !== 'home'" />
 
-            <div class="col-md-12 container" v-if="items.page !== 'home'">
+            <div class="py-4 col-md-12 container" v-if="items.page !== 'home'">
                 <img style="height: 150px; width: 100%; display:block; margin: 0px auto;" :src="items.img.double" :alt="items.img.double">
             </div>
 
@@ -71,17 +72,24 @@ export default {
             let data = [];
                 if(this.items.page !== 'home' ){
                     for (let i = 0; i < this.items.catPromotion.length; i++) {
-                        if(this.items.catPromotion[i].triple_double === 0){
+                        if(this.items.catPromotion[i].triple_double === 2){
                             data.push(this.items.catPromotion[i]);
                         }
                     }
                 }
             return data;
         },
-        mediaWidth() {
-            let aux = '65%';
+        mediaBanner() {
+            let aux = "margin-top: -2px; !important"; //computadora
             if(this.$screen.width < 950){
-                aux = '95%';
+                aux = "margin-top: 22px;";    //celular
+            }
+            return aux;
+        },
+        mediaImgTitle() {
+            let aux = "width: 50%;"; //escritorio
+            if(this.$screen.width < 950){
+                aux = "width: 100%;"; //celular
             }
             return aux;
         }
@@ -95,115 +103,13 @@ export default {
 </script>
 
 <style scope>
-.card-clickk{
-     transition: all 150ms ease-in-out;
-    font-size: 1.8rem;
-    font-weight: 500;
-    font-family: "PT Sans", Verdana, sans-seri;
-}
-.card-clickk:hover{
-  animation: heartBeat; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 2s; /* don't forget to set a duration! */
-}
 img[src*=".svg"].tp-popup-logo, img.tp-popup-logo {
     max-width: 170px;
     width: 100%;
     vertical-align: middle;
 }
-.card-shadow{
--webkit-box-shadow: 5px 5px 47px 5px rgba(0,0,0,0.91);
-box-shadow: 5px 5px 47px 5px rgba(0,0,0,0.91);
-}
-.button-primary {
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: #154360;
-    /*border: 2px solid #e74c3c;*/
-    border-radius: 0.4em;
-    border-color: #146296;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
-    -webkit-transition: all 150ms ease-in-out;
-    transition: all 150ms ease-in-out;
-    font-size: 1.8rem;
-    font-weight: 500;
-    font-family: "PT Sans", Verdana, sans-seri;
-    line-height: 1;
-    margin: 20px;
-    padding: 0.7em 2.0em;
-    width: 100%;
-}
-.button-primary:hover {
-    color: #fff;
-    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
-    background-color:  #085284;
-}
-.button-default {
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: #000000;
-    /*border: 2px solid #e74c3c;*/
-    border-radius: 0.1em;
-    border-color: #ffffff;
-    border: 3px solid black;
-    color: rgb(3, 3, 3);
-    box-shadow: 0 0 40px 40px rgba(255,255,255,1) inset, 0 0 0 0 #3498db;
-    -webkit-transition: all 150ms ease-in-out;
-    transition: all 350ms ease-in-out;
-    font-size: 2.0rem;
-    font-weight: 500;
-    font-family: "PT Sans", Verdana, sans-seri;
-    line-height: 1;
-    margin: 9px;
-    padding: 0.3em 2.0em;
-    width: 100%;
-}
-.button-default:hover {
-    color: #fff;
-    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
-    background-color:  #085284;
-}
-.click img {
-    cursor: pointer;
-}
-.el-select .el-input {
-    width: 100% !important;
-}
-.el-select .el-input {
-    width: 180px;
-}
-.input-with-select .el-input-group__prepend {
-    background-color: #fff;
-}
+
 @media screen and (min-width: 0px) and (max-width: 640px) {
-    .button-primary {
-        box-sizing: border-box;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background-color: #154360;
-        /*border: 2px solid #e74c3c;*/
-        border-radius: 0.4em;
-        border-color: #146296;
-        color: #fff;
-        box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
-        -webkit-transition: all 150ms ease-in-out;
-        transition: all 150ms ease-in-out;
-        font-size: 1.8rem;
-        font-weight: 500;
-        font-family: "PT Sans", Verdana, sans-seri;
-        line-height: 1;
-        margin: 0px;
-        padding: 0.7em 2.0em;
-        width: 100%;
-    }
-    .button-spacing{
-        margin-bottom: 10px;
-    }
     img[src*=".svg"].tp-popup-logoo, img.tp-popup-logoo {
         max-width: 170px;
         width: 20%;

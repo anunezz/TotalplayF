@@ -15,7 +15,7 @@ export default {
             return {
                 page: 'netflix',
                 img: {
-                    triple: '/img/publico/promociones/netflix/title/Titulo_netflix_triple.svg',
+                    triple: '/img/publico/promociones/netflix/title/titulo_totalplay_y_netflix.png',
                     double: '/img/publico/promociones/netflix/title/Titulo_netflix_double.svg',
                     banner: '/img/publico/BanerNetflix.png'
                 },

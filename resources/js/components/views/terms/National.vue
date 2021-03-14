@@ -1,6 +1,21 @@
 <template>
     <div class="col-md-12">
-        <h1>TÉRMINOS Y CONDICIONES PARA SERVICIOS RESIDENCIALES DOBLEPLAY Y/O TRIPLEPLAY</h1>
+
+Aviso legal <br>
+<p>
+PROMOCIÓN MÁS MEGAS POR 3 MESES
+TOTALPLAY TELECOMUNICACIONES S.A. DE C.V. TODOS LOS DERECHOS RESERVADOS. TARIFAS REGISTRADAS ANTE IFT. REGISTRO DE LAS PROMOCIONES PRESENTADO ANTE IFT. PRECIOS INCLUYEN IMPUESTOS APLICABLES. PROMOCIÓN VÁLIDA DEL 1 AL 31 DE MARZO DEL 2021. PROMOCIÓN DISPONIBLE APLICA PARA CLIENTES NUEVOS EN LA CONTRATACIÓN DE TOTALPLAY TV + INTERNET / TOTALPLAY TV + INTERNET + NETFLIX / TOTALPLAY TV + INTERNET + AMAZON PRIME . EL PAQUETE INICIAL RECIBIRÁ 30 MEGAS DE DESCARGA DURANTE 30 DÍAS. EL PAQUETE DIVIÉRTETE RECIBIRÁ 80 MEGAS DE DESCARGA DURANTE 3 MESES. EL PAQUETE DIVIÉRTETE+ RECIBIRÁ 200 MEGAS DE DESCARGA DURANTE 3 MESES. EL PAQUETE EMOCIÓNATE RECIBIRÁ 400 MEGAS DE DESCARGA DURANTE 3. AL FINALIZAR LOS MESES DE PROMOCIÓN SE REGRESARÁ A LA VELOCIDAD DE DESCARGA DEL PAQUETE CONTRATADO.
+
+DESCUENTO DE POR VIDA
+TOTALPLAY TELECOMUNICACIONES S.A. DE C.V. TODOS LOS DERECHOS RESERVADOS. TARIFAS REGISTRADAS ANTE IFT. REGISTRO DE LAS PROMOCIONES PRESENTADO ANTE IFT. PRECIOS INCLUYEN IMPUESTOS APLICABLES. PROMOCIONES VÁLIDAS DEL 1 AL 31 DE MARZO DEL 2021. TOTALPLAY TV + INTERNET. DESCUENTO DE POR VIDA: LOS PRIMEROS 5 MESES SE PAGARÁ: PAQUETE INICIAL $619 PRONTO PAGO Y $669 PRECIO DE LISTA, PAQUETE DIVIÉRTETE $669 PRONTO PAGO Y $719 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $769 PRONTO PAGO Y $819 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $1,199 PRONTO PAGO Y $1,279 PRECIO DE LISTA, SORPRÉNDETE $1,779 PRONTO PAGO Y $1,859 PRECIO DE LISTA. TOTALPLAY TV + INTERNET + NETFLIX 2 HD. PAQUETE DIVIÉRTETE $849 PRONTO PAGO Y $899 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $949 PRONTO PAGO Y $999 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $1,379 PRONTO PAGO Y $1,459 PRECIO DE LISTA, SORPRÉNDETE $1,959 PRONTO PAGO Y $2,039 PRECIO DE LISTA. TOTALPLAY TV + INTERNET + NETFLIX 4 UHD. PAQUETE DIVIÉRTETE $909 PRONTO PAGO Y $959 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $1,009 PRONTO PAGO Y $1,059 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $1,439 PRONTO PAGO Y $1,519 PRECIO DE LISTA, SORPRÉNDETE $2,019 PRONTO PAGO Y $2,000 PRECIO DE LISTA. TOTALPLAY TV + INTERNET + AMAZON PRIME. PAQUETE DIVIÉRTETE $759 PRONTO PAGO Y $809 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $859 PRONTO PAGO Y $909 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $1,289 PRONTO PAGO Y $1,369 PRECIO DE LISTA, SORPRÉNDETE $1,869 PRONTO PAGO Y $1,949 PRECIO DE LISTA.
+A PARTIR DEL SEXTO MES SE APLICARÁN DE MANERA MENSUAL LOS SIGUIENTES DESCUENTOS TOTALPLAY TV + INTERNET: PAQUETE INICIAL $40 PESOS, PAGANDO $579 PRONTO PAGO Y $629 PRECIO DE LISTA, PAQUETE DIVIÉRTETE $40 PESOS, PAGANDO $629 PRONTO PAGO Y $679 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $70 PESOS, PAGANDO $699 PRONTO PAGO Y $749 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $80 PESOS, PAGANDO $1,119 PRONTO PAGO Y $1,199 PRECIO DE LISTA, SORPRÉNDETE $100 PESOS, PAGANDO $1,679 PRONTO PAGO Y $1,759 PRECIO DE LISTA. TOTALPLAY TV + INTERNET + NETFLIX 2 HD. PAQUETE DIVIÉRTETE $40 PESOS, PAGANDO $809 PRONTO PAGO Y $859 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $70 PESOS, PAGANDO $879 PRONTO PAGO Y $929 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $80 PESOS, PAGANDO $1,299 PRONTO PAGO Y $1,379 PRECIO DE LISTA, SORPRÉNDETE $100 PESOS, PAGANDO $1,859 PRONTO PAGO Y $1,759 PRECIO DE LISTA. TOTALPLAY TV + INTERNET + NETFLIX 4 UHD. PAQUETE DIVIÉRTETE $40 PESOS, PAGANDO $869 PRONTO PAGO Y $919 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $70 PESOS, PAGANDO $939 PRONTO PAGO Y $989 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $80 PESOS, PAGANDO $1,359 PRONTO PAGO Y $1,439 PRECIO DE LISTA, SORPRÉNDETE $100 PESOS, PAGANDO $1,919 PRONTO PAGO Y $1,999 PRECIO DE LISTA. TOTALPLAY TV + INTERNET + AMAZON PRIME. PAQUETE DIVIÉRTETE $40 PESOS, PAGANDO $719 PRONTO PAGO Y $769 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $70 PESOS, PAGANDO $789 PRONTO PAGO Y $839 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $80 PESOS, PAGANDO $1,209 PRONTO PAGO Y $1,289 PRECIO DE LISTA, SORPRÉNDETE $100 PESOS, PAGANDO $1,769 PRONTO PAGO Y $1,849 PRECIO DE LISTA.
+TOTALPLAY INTERNET. DESCUENTO DE POR VIDA: LOS PRIMEROS 5 MESES SE PAGARÁ: PAQUETE INICIAL $509 PRONTO PAGO Y $459 PRECIO DE LISTA, PAQUETE DIVIÉRTETE $529 PRONTO PAGO Y $579 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $629 PRONTO PAGO Y $679 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $999 PRONTO PAGO Y $1,079 PRECIO DE LISTA, SORPRÉNDETE $1,579 PRONTO PAGO Y $1,659 PRECIO DE LISTA. TOTALPLAY TV + INTERNET + NETFLIX 2 HD. PAQUETE DIVIÉRTETE $709 PRONTO PAGO Y $759 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $809 PRONTO PAGO Y $859 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $1,179 PRONTO PAGO Y $1,259 PRECIO DE LISTA, SORPRÉNDETE $1,759 PRONTO PAGO Y $1,839 PRECIO DE LISTA. TOTALPLAY TV + INTERNET + NETFLIX 4 UHD. PAQUETE DIVIÉRTETE $769 PRONTO PAGO Y $819 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $869 PRONTO PAGO Y $919 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $1,239 PRONTO PAGO Y $1,319 PRECIO DE LISTA, SORPRÉNDETE $1,819 PRONTO PAGO Y $1,899 PRECIO DE LISTA. TOTALPLAY TV + INTERNET + AMAZON PRIME. PAQUETE DIVIÉRTETE $619 PRONTO PAGO Y $669 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $719 PRONTO PAGO Y $769 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $1,089 PRONTO PAGO Y $1,169 PRECIO DE LISTA, SORPRÉNDETE $1,669 PRONTO PAGO Y $1,749 PRECIO DE LISTA. A PARTIR DEL SEXTO MES SE APLICARÁN DE MANERA MENSUAL LOS SIGUIENTES DESCUENTOS TOTALPLAY INTERNET: PAQUETE INICIAL $20 PESOS, PAGANDO $439 PRONTO PAGO Y $489 PRECIO DE LISTA, PAQUETE DIVIÉRTETE $20 PESOS, PAGANDO $509 PRONTO PAGO Y $559 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $30 PESOS, PAGANDO $599 PRONTO PAGO Y $649 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $50 PESOS, PAGANDO $949 PRONTO PAGO Y $1,029 PRECIO DE LISTA, SORPRÉNDETE $80 PESOS, PAGANDO $1,499 PRONTO PAGO Y $1,579 PRECIO DE LISTA. TOTALPLAY INTERNET + NETFLIX 2 HD. PAQUETE DIVIÉRTETE $40 PESOS, PAGANDO $689 PRONTO PAGO Y $739 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $30 PESOS, PAGANDO $779 PRONTO PAGO Y $829 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $50 PESOS, PAGANDO $1,129 PRONTO PAGO Y $1,209 PRECIO DE LISTA, SORPRÉNDETE $80 PESOS, PAGANDO $1,679 PRONTO PAGO Y $1,759 PRECIO DE LISTA. TOTALPLAY INTERNET + NETFLIX 4 UHD. PAQUETE DIVIÉRTETE $20 PESOS, PAGANDO $749 PRONTO PAGO Y $799 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $30 PESOS, PAGANDO $839 PRONTO PAGO Y $889 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $50 PESOS, PAGANDO $1,189 PRONTO PAGO Y $1,209 PRECIO DE LISTA, SORPRÉNDETE $80 PESOS, PAGANDO $1,739 PRONTO PAGO Y $1,819 PRECIO DE LISTA. TOTALPLAY INTERNET + AMAZON PRIME. PAQUETE DIVIÉRTETE $20 PESOS, PAGANDO $599 PRONTO PAGO Y $649 PRECIO DE LISTA, PAQUETE DIVIÉRTETE+ $30 PESOS, PAGANDO $689 PRONTO PAGO Y $739 PRECIO DE LISTA, PAQUETE EMOCIÓNATE $50 PESOS, PAGANDO $1,039 PRONTO PAGO Y $1,119 PRECIO DE LISTA, SORPRÉNDETE $80 PESOS, PAGANDO $1,589 PRONTO PAGO Y $1,669 PRECIO DE LISTA.
+
+</p>
+
+
+
+        <h1>TÉRMINOS Y CONDICIONES PARA SERVICIOS RESIDENCIALES TOTALPLAY TV + internet y/o Totalplay internet.</h1>
         <br>
         <h2>Cobertura</h2>
 
@@ -52,7 +67,7 @@
         </p>
 
         <div class="col-md-12" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/monto-activacion-garantia.png" alt="">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/monto-activacion-garantia.png" alt="">
         </div>
 
         <h2>Portabilidad numérica</h2>
@@ -89,7 +104,7 @@
         <p>En todos nuestros planes residenciales Dobleplay y/o Tripleplay manejamos un costo de conexión, el cual consiste en llevar la fibra óptica hasta el hogar y mantenerla siempre conectada a través de los equipos de Totalplay.</p>
 
         <div class="col-md-12" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/Costo_de_conexion.png" alt="">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/Costo_de_conexion.png" alt="">
         </div>
 
         <p>Si en la instalación realizaste un pago por concepto de activación, este monto será descontado de tu cargo de conexión. Los precios ya incluyen IVA.</p>
@@ -145,16 +160,16 @@
         </p>
 
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/costo-equipos1.jpg" alt="costo-equipos1">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/costo-equipos1.jpg" alt="costo-equipos1">
         </div>
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/costo-equipos2.jpg" alt="costo-equipos2">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/costo-equipos2.jpg" alt="costo-equipos2">
         </div>
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/costo-equipos3.jpg" alt="costo-equipos3">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/costo-equipos3.jpg" alt="costo-equipos3">
         </div>
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/costo-equipos_wifi_extender.jpg" alt="costo-equipos_wifi_extender">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/costo-equipos_wifi_extender.jpg" alt="costo-equipos_wifi_extender">
         </div>
 
         <p>
@@ -208,7 +223,7 @@
         </p>
 
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/estado.png" alt="estado">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/estado.png" alt="estado">
         </div>
 
         <p>Recuerda que para cualquier consulta que necesites hacer, comunícate a nuestro Centro de Atención a Clientes (55 1579 8000 ó 800 5100 510).</p>
@@ -269,10 +284,10 @@
         Para asegurar una buena conectividad, te recomendamos conectarte de la siguiente manera:</p>
 
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/material-construccion.png" alt="material-construccion">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/material-construccion.png" alt="material-construccion">
         </div>
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/dispositivos.png" alt="dispositivos">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/dispositivos.png" alt="dispositivos">
         </div>
 
         <h2>Programas o servicios en línea para medir la velocidad de tu Internet</h2>
@@ -327,28 +342,28 @@
         <p>Adicionales de televisión</p>
 
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/servicios-adicionales-tv.png" alt="servicios-adicionales-tv">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/servicios-adicionales-tv.png" alt="servicios-adicionales-tv">
         </div>
 
         <p>Addons disponibles para planes con servicio de Televisión.</p>
 
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/terminos-adicionales-tv-2.png" alt="terminos-adicionales-tv-2">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/terminos-adicionales-tv-2.png" alt="terminos-adicionales-tv-2">
         </div>
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/Canales-p1.png" alt="Canales-p1">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/Canales-p1.png" alt="Canales-p1">
         </div>
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/Canales-p2.png" alt="Canales-p2">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/Canales-p2.png" alt="Canales-p2">
         </div>
 
         <h2>Adicionales de Internet</h2>
 
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/tyc-crecelo-1.png" alt="tyc-crecelo-1">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/tyc-crecelo-1.png" alt="tyc-crecelo-1">
         </div>
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/tv-crecelos.png" alt="tv-crecelos">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/tv-crecelos.png" alt="tv-crecelos">
         </div>
 
         <p>*En planes dobleplay sólo aplica la contratación de 2 y 7 días.</p>
@@ -356,7 +371,7 @@
         <h2>Adicionales de instalaciones</h2>
 
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/adicionales-instalaciones.png" alt="adicionales-instalaciones">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/adicionales-instalaciones.png" alt="adicionales-instalaciones">
         </div>
 
         <ol start="1">
@@ -373,13 +388,13 @@
         <h2>Tarifas vigentes de telefonía</h2>
         <p>Registro presentado ante IFT</p>
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/tarifas-telefonia.jpg" alt="tarifas-telefonia">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/tarifas-telefonia.jpg" alt="tarifas-telefonia">
         </div>
 
         <h2>Servicios de asistencia</h2>
 
         <div class="col-md-12 py-1" align="center">
-            <img style="width: 100%;" src="img/publico/promociones/term/residencial/servicios-asistencia.jpg" alt="servicios-asistencia">
+            <img style="width: 100%;" src="/img/publico/promociones/term/residencial/servicios-asistencia.jpg" alt="servicios-asistencia">
         </div>
 
         <p>Precios ya incluyen IVA.</p>

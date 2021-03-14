@@ -15,20 +15,18 @@ class CreateCatPromotionsTable extends Migration
     {
         Schema::create('cat_promotions', function (Blueprint $table) {
             $table->id();
-            //$table->boolean('type')->default(1);
             $table->unsignedBigInteger('type')->default(1);
-            $table->integer('frontier')->default(0);
-            $table->integer('triple_double')->default(0);
+            $table->unsignedBigInteger('frontier')->default(0);
+            $table->unsignedBigInteger('triple_double')->default(0);
             $table->string('name',100);
-            //$table->string('url',100);
             $table->string('color',100);
             $table->longText('description');
             $table->boolean('isActive')->default(0);
             $table->timestamps();
 
-            $table->foreign('type')
-                ->references('id')
-                ->on('cat_name_paks');
+            $table->foreign('type')->references('id')->on('cat_name_paks');
+            $table->foreign('frontier')->references('id')->on('cat_pack_frontiers');
+            $table->foreign('triple_double')->references('id')->on('cat_triple_dobles');
 
         });
     }

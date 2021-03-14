@@ -23,24 +23,7 @@
                 </el-carousel>
             </div>
             <div class="col-xs-12 col-ms-12 col-md-4" style="background: #6d5c96; height:400px;">
-                <br>
-                <div style="width: 100%; display:flex; justify-content: center;">
-                    <div>
-                        <strong style="font-family: Arial, sans-serif;
-                                        font-size: 15pt; font-style: negrita;
-                                        color: #A7D8F8;">Vive la experiencia!</strong> &nbsp; &nbsp;
-                        <img src="img/publico/logo-totalplay-n.svg" alt="logo-totalplay-n" class="tp-popup-log">
-                    </div>
-                </div>
-
-                <div style="">
-                    <h5 class="text-center" style="color: red;">¡No te quedes sin internet veloz!</h5>
-                    <h6 class="text-center" style="color: #d2a545;">Deja tus datos
-                    Y te llamamos en segundos <br>
-                    ¡Sin esperas!</h6>
-                </div>
-
-                <form-component :modal="false" :promotion_id="null" />
+                <form-main-component :modal="false" :promotion_id="null" />
             </div>
         </div>
     </div>
@@ -53,11 +36,11 @@
 </template>
 
 <script>
-import Form from '../fragments/Form';
+import FormMain from '../fragments/FormMain';
 import Promotions from '../fragments/Promotions';
 export default {
     components:{
-        'form-component': Form,
+        'form-main-component': FormMain,
         'promotions-component': Promotions,
     },
     computed:{

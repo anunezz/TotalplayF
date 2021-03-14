@@ -15,6 +15,8 @@ use App\Http\Models\Cats\CatState;
 use App\Http\Models\Cats\CatPromotion; //quitar
 use App\Http\Models\Cats\CatCodePromotion;
 use App\Http\Models\Cats\CatNamePaks;
+use App\Http\Models\Cats\CatTripleDoble;
+use App\Http\Models\Cats\CatPackFrontier;
 use App\Http\Models\Cats\CatCity;
 use App\Http\Models\Cats\CatProfile;
 use App\Http\Models\FirstSesion;
@@ -34,7 +36,7 @@ class TotalplayController extends Controller
         try{
             if ($request->wantsJson()){
                 $request->validate([
-                    'name' => 'required|string|max:100|'.$this->alphanumeric,
+                    'name' => 'nullable|string|max:100|'.$this->alphanumeric,
                     'city_id' => 'required|numeric',
                     'promotion_id' => 'nullable|numeric',
                     'phone' => 'required|max:10|'.$this->phone,
@@ -106,7 +108,7 @@ class TotalplayController extends Controller
                 ]);
 
                 $data = $request->all();
-                $data['city'] = ( $data['city'] === 2 | $data['city'] === 3 | $data['city'] === 4)? 1 : 0;
+                $data['city'] = ( $data['city'] === 2 | $data['city'] === 3 | $data['city'] === 4)? 2 : 1;
                 $data['type'] = 1;
                 $catHome = CatPromotion::Filter($data)->get();
                 $data['typePack'] = null;
@@ -374,7 +376,7 @@ class TotalplayController extends Controller
         try{
             if ($request->wantsJson()){
                 $data = $request->all();
-                $packs = CatPromotion::orderBy('updated_at', 'DESC')->paginate($data['perPage']);
+                $packs = CatPromotion::Filters($data['filters'])->paginate($data['perPage']);
 
                 return response()->json([
                     'success' => true,
@@ -395,20 +397,18 @@ class TotalplayController extends Controller
     public function getCatsPacksForm(){
         try{
                 $packNames = CatNamePaks::where('isActive',1)->get();
-                $frontiers = collect([
-                    ['id'=> 0, 'name' => 'Residencial'],
-                    ['id'=> 1, 'name' => 'Fronterizo']
-                ]);
+                $frontiers = CatPackFrontier::where('isActive',1)->get();
+                $triple_double = CatTripleDoble::where('isActive',1)->get();
 
                 $actives = collect([
                     ['id'=> 0, 'name' => 'Desactivado'],
                     ['id'=> 1, 'name' => 'Activado']
                 ]);
 
-                $triple_double = collect([
-                    ['id'=> 0, 'name' => 'Double play'],
-                    ['id'=> 1, 'name' => 'Triple play']
-                ]);
+                // collect([
+                //     ['id'=> 0, 'name' => 'Double play'],
+                //     ['id'=> 1, 'name' => 'Triple play']
+                // ]);
 
                 return response()->json([
                     'success' => true,

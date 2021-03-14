@@ -10,8 +10,8 @@
                         v-model="ruleForm.isColor"
                         active-color="#13ce66"
                         inactive-color="#ff4949"
-                        active-text="Activar fonde de color"
-                        inactive-text="Activar fondo de imagen">
+                        active-text="Activar fonde de imagen"
+                        inactive-text="Activar fondo de color">
                     </el-switch>
                 </el-col>
                 <el-col :span='8'>

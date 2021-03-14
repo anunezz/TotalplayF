@@ -1,10 +1,10 @@
 <template>
-    <div style="width: 55%; margin: 0px auto; margin-top: 220px;">
+    <div style="width: 60%; margin: 0px auto; margin-top: 140px;">
         <el-row :gutter='20'>
             <el-col :span='24'>
                 <el-form :model="ruleForm" ref="ruleForm" label-position="top" >
                     <el-row :gutter='20'>
-                        <!-- <el-col :span='24' v-if="mediaForm">
+                        <el-col :span='24'>
                             <el-form-item prop="name"
                             :rules="[{ required: true, message: message.ruleForm.required },
                                     { pattern: alphanumeric, message: message.ruleForm.special_characters, trigger: ['blur','change']},
@@ -12,7 +12,7 @@
                                 <el-input size="mini" style="width: 100%;" placeholder="Nombre"
                                 v-model="ruleForm.name"></el-input>
                             </el-form-item>
-                        </el-col> -->
+                        </el-col>
                         <el-col :span='24'>
                             <el-form-item prop="phone" :rules="[
                                     { validator: validatorPhone, trigger: ['blur','change'] },
@@ -21,7 +21,7 @@
                                 v-model="ruleForm.phone"></el-input>
                             </el-form-item>
                         </el-col>
-                        <!-- <el-col :span='24' v-if="mediaForm">
+                        <el-col :span='24'>
                             <el-form-item prop="promotion_code" :autocomplete="false"
                                 :rules="[{ required: false, message: message.ruleForm.required },
                                     { pattern: alphanumeric, message: message.ruleForm.special_characters, trigger: ['blur','change']},
@@ -29,7 +29,7 @@
                                 <el-input size="mini" style="width: 100%;" placeholder="Codigo de promoción"
                                 v-model="ruleForm.promotion_code"></el-input>
                             </el-form-item>
-                        </el-col> -->
+                        </el-col>
                         <el-col v-if="modal" :span='24'>
                             <div style='width:100%; display:flex; justify-content: center;'>
                                 <div style="width: 100%;">
@@ -66,20 +66,13 @@ export default {
                 city_id: null,
                 phone: null,
                 promotion_code: null
-            },
+            }
         }
     },
     computed:{
         clearModal(){
             //this.clearInputs();
             return this.$store._modules.root.state.totalplay.modalForm;
-        },
-        mediaForm() {
-            let aux = true;
-            if(this.$screen.width < 950){
-                aux = false;
-            }
-            return aux;
         }
     },
     methods:{

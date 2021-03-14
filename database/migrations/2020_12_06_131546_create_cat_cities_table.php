@@ -17,11 +17,12 @@ class CreateCatCitiesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('state_id');
             $table->string('name',100);
-            $table->boolean('frontier')->default(0);
+            $table->unsignedBigInteger('frontier');
             $table->boolean('isActive')->default(0);
             $table->timestamps();
 
             $table->foreign('state_id')->references('id')->on('cat_states')->onDelete('cascade');
+            $table->foreign('frontier')->references('id')->on('cat_pack_frontiers')->onDelete('cascade');
         });
     }
 

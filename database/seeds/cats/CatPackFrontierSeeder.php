@@ -3,7 +3,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CatNamePacks extends Seeder
+class CatPackFrontierSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,25 +12,16 @@ class CatNamePacks extends Seeder
      */
     public function run()
     {
-        DB::table('cat_name_paks')->insert([
+        DB::table('cat_pack_frontiers')->insert([
             [
                 'id' => 1,
-                'name' => 'Paquete Hogar',
-                'className' => 'table-warning',
+                'name' => 'Residencial',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'id' => 2,
-                'name' => 'Amazon',
-                'className' => 'table-info',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 3,
-                'name' => 'Netflix',
-                'className' => 'table-danger',
+                'name' => 'Fronterizo',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]

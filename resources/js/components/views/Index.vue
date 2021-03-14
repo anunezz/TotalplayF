@@ -3,10 +3,6 @@
 
     <loading-component v-if="$store._modules.root.state.totalplay.loading" />
 
-    <!-- style="background: url('img/publico/fondo.jpg');
-                background-size: 100% 100%;
-                background-attachment: fixed;" -->
-
     <el-dialog
         :visible.sync="modal"
         :width="mediaWidth"
@@ -106,7 +102,7 @@
             <div class="container-fluid">
                 <a @click="linkss" class="animate__animated animate__pulse animate__infinite infinite">
                     <router-link  class="navbar-brand" to="/">
-                        <img src="/img/publico/logo-totalplay-n.svg" width="200" height="30" class="d-inline-block align-top" alt="logo-totalplay-n">
+                        <img src="/img/publico/logo.png" width="145" height="30" class="d-inline-block align-top" alt="logo-totalplay-n">
                     </router-link>
                 </a>
 
@@ -155,7 +151,7 @@
                 <el-col :span='24'>
                     <div style='padding: 8px 0px; width:100%; display:flex; justify-content: center;'>
                         <div class="animate__animated animate__pulse animate__infinite infinite">
-                            <img src="/img/publico/logo-totalplay-n.svg" width="300" height="40" class="d-inline-block align-top" alt="">
+                            <img src="/img/publico/logo.png" width="188" height="37" class="d-inline-block align-top" alt="">
                         </div>
                     </div>
                 </el-col>

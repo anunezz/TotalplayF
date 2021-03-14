@@ -1,5 +1,6 @@
 <?php namespace App\Http\Models\Cats;
 use App\Http\Models\Cats\CatNamePaks;
+use App\Http\Models\Cats\CatPackFrontier;
 use App\Http\Models\FilePromotionModal;
 use App\Http\Models\ImgPromotion;
 use Illuminate\Database\Eloquent\Model;
@@ -7,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CatPromotion extends Model
 {
     protected $fillable = ['type','frontier','triple_double','name','color','description','isActive'];
-    protected $with = ['namepack','imgpromotion','imgpromotionmodal'];
+    protected $with = ['namepack','imgpromotion','imgpromotionmodal','catFrontier','catTripleDoble'];
 
     public function namepack()
     {
@@ -16,6 +17,16 @@ class CatPromotion extends Model
             'type','id'
             //'type','id'
         );
+    }
+
+    public function catFrontier()
+    {
+        return $this->belongsTo( CatPackFrontier::class, 'frontier' ,'id' );
+    }
+
+    public function catTripleDoble()
+    {
+        return $this->belongsTo( CatTripleDoble::class, 'triple_double' ,'id' );
     }
 
     public function imgpromotion()
@@ -38,13 +49,43 @@ class CatPromotion extends Model
     {
         return $query->where(function($q) use ($data){
 
+            //dd($data);
+
             if($data['type'] === 1){
-                if ( is_bool($data['typePack']) === true ){
-                    $q->where("triple_double",$data['typePack']);
+                if ( is_bool($data['typePack']) === true ){ // evaluando si es paquete home
+                    $q->where("triple_double",($data['typePack'] === true ? 1:0));
                 }
             }
 
-            $q->where("frontier",$data['city'])->where('type',$data['type'])->where('isActive',1);
+            $q->where("frontier", $data['city'] )->where('type',$data['type'])->where('isActive',1);
+        });
+    }
+
+    public function scopeFilters($query, $data)
+    {
+        return $query->where(function($q) use ($data){
+            //dd($data);
+            if( count($data) > 1 ){
+                if( $data['name'] !== null || $data['name'] !== '' ){
+                    $name = $data['name'];
+                    $q->where("name",'like',"%$name%");
+                }
+                if( count($data['frontiers']) === 1 ){
+                    $q->whereIn("frontier",$data['frontiers']);
+                }
+                if( count($data['tripleDouble']) === 1 ){
+                    $q->whereIn("triple_double ",$data['tripleDouble']);
+                }
+                if( count($data['types']) > 0 ){
+                    $q->whereIn("type",$data['types']);
+                }
+                if( $data['name'] !== null || $data['name'] !== '' ){
+                    $name = $data['name'];
+                    $q->where("name",'like',"%$name%");
+                }
+            }
+
+            $q->orderBy('updated_at', 'DESC');
         });
     }
 

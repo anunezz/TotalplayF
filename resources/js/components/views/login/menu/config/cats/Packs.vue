@@ -2,13 +2,14 @@
 <div class="row">
 
     <el-dialog
-    :close-on-click-modal="false"
-    :close-on-press-escape="false"
-    :show-close="false"
-    :title="titleModal"
-    class="modalUser"
-    :visible.sync="modalVisible"
-    width="70%">
+        :close-on-click-modal="true"
+        :close-on-press-escape="true"
+        :show-close="true"
+        :title="titleModal"
+        class="modalUser"
+        :visible.sync="modalVisible"
+        width="70%"
+    >
         <span v-if="titleModal === 'Deshabilitar paquete' || titleModal ==='Activar paquete'" v-text="messageModal"></span>
 
         <span slot="footer" class="dialog-footer" v-if="titleModal === 'Deshabilitar paquete' || titleModal ==='Activar paquete'">
@@ -22,6 +23,7 @@
         v-if="titleModal === 'Nuevo paquete' || titleModal === 'Actualizar paquete'"
         :items="pack"
         @responsePack="responsePack" />
+        <filter-component v-if="titleModal === 'Búsqueda avanzada'" @responseFormFilters="responseFormFilters" />
     </el-dialog>
 
 
@@ -42,7 +44,7 @@
             <strong>Total:</strong> {{ pagination.total }}
         </div>
         <div class="btn-group float-right">
-            <button class="btn btn-secondary btn-sm"> <i class="el-icon-search"></i> Búsqueda avanzada</button>
+            <button class="btn btn-secondary btn-sm" @click="modal(['filter',[]])" > <i class="el-icon-search"></i> Búsqueda avanzada</button>
             <button class="btn btn-primary btn-sm" @click="modal(['new',[]])"> <i class="el-icon-plus"></i> Nuevo paquete</button>
         </div>
     </div>
@@ -61,13 +63,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(item,index) in packs" :key="index">
+            <tr v-for="(item,index) in packs" :key="index" :class="item.namepack.className">
                 <th scope="row" v-text="item.idx"></th>
                 <td v-text="item.namepack.name"></td>
                 <td v-text="item.name"></td>
                 <td v-text="item.description"></td>
-                <td v-text="item.frontier ===0?'Residencial':'Fronterizo'"></td>
-                <td v-text="item.triple_double === 0?'Doble play':'Triple play'"></td>
+                <td v-text="item.cat_frontier.name"></td>
+                <td v-text="item.cat_triple_doble.name"></td>
                 <td v-text="(item.isActive === 1?'Activo':'Desactivado')"></td>
                 <td>
                     <div class="btn-group float-center">
@@ -98,9 +100,13 @@
 
 <script>
 import newPackscomponent from '../../../../fragments/FormNewPack';
+import filterComponent from '../../../../fragments/FilterPack';
+import {Globals} from "../../../../../../mixins/Globals";
 export default {
+    mixins:[Globals],
     components:{
         'new-pack-component': newPackscomponent,
+        'filter-component': filterComponent
     },
     data(){
         return {
@@ -118,13 +124,20 @@ export default {
                 perPage: 10
             },
             from:0,
-            to:0
+            to:0,
+            filters:{}
         }
     },
     created(){
         this.getCatsPacks();
     },
     methods: {
+        responseFormFilters(data){
+            this.modalVisible = false;
+            this.titleModal = null;
+            this.filters = data;
+            this.getCatsPacks(this.pagination.currentPage);
+        },
         handleSizeChange(sizePerPage) {
             this.pagination.perPage = sizePerPage;
             this.getCatsPacks(this.pagination.currentPage);
@@ -163,6 +176,12 @@ export default {
                         type: true,
                         data: data[1]
                     };
+                break;
+                }
+                case 'filter':{
+                    this.modalVisible = true;
+                    this.titleModal = 'Búsqueda avanzada';
+                    this.messageModal = null;
                 break;
                 }
                 default:{
@@ -215,21 +234,13 @@ export default {
         getCatsPacks(currentPage = 1){
             this.$store._modules.root.state.totalplay.loading = true;
             axios.post('/api/getCatsPacks',{
-                filters: [],
+                filters: this.filters,
                 page: currentPage,
                 perPage: this.pagination.perPage
             }).then(response => {
                 if(response.data.success){
                     this.packs = [];
-                    let packs = response.data.lResults.packs.data;
-                    let sum = response.data.lResults.packs.from;
-                    let data = [];
-                    for (let i = 0; i < packs.length; i++) {
-                        sum = i === 0 ? sum : (sum + 1);
-                        packs[i].idx = sum;
-                        data.push(packs[i]);
-                    }
-                    this.packs = data;
+                    this.packs = this.idx(response.data.lResults.packs.data,response.data.lResults.packs.from);
                     this.pagination.currentPage = response.data.lResults.packs.current_page;
                     this.pagination.perPage = response.data.lResults.packs.per_page;
                     this.pagination.total = response.data.lResults.packs.total;
@@ -238,7 +249,6 @@ export default {
                     this.$store._modules.root.state.totalplay.loading = false;
                 }
             }).catch(error => {
-                console.error(error);
                 this.$message({
                     message: 'No se pudo completar la acción.',
                     type: 'warning'
