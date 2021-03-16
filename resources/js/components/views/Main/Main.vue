@@ -22,7 +22,8 @@
                     </el-carousel-item>
                 </el-carousel>
             </div>
-            <div class="col-xs-12 col-ms-12 col-md-4" style="background: #6d5c96; height:400px;">
+            <div class="col-xs-12 col-ms-12 col-md-4" :style="this.$store._modules.root.state.totalplay.main">
+            <!-- <div class="col-xs-12 col-ms-12 col-md-4" :style="background: #6d5c96; height:400px;"> -->
                 <form-main-component :modal="false" :promotion_id="null" />
             </div>
         </div>

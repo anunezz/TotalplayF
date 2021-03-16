@@ -17,7 +17,7 @@ export default {
                 img: {
                     triple: '/img/publico/promociones/netflix/title/titulo_totalplay_y_netflix.png',
                     double: '/img/publico/promociones/netflix/title/Titulo_netflix_double.svg',
-                    banner: '/img/publico/BanerNetflix.png'
+                    banner: this.$store._modules.root.state.totalplay.imgBannerNetflix
                 },
                 catPromotion: this.$store._modules.root.state.totalplay.catNetflix
             };

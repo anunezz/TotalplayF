@@ -77,6 +77,10 @@ export const Globals = {
                     this.$store._modules.root.state.totalplay.catHome = response.data.lResults.catHome;
                     this.$store._modules.root.state.totalplay.catAmazon = response.data.lResults.catAmazon;
                     this.$store._modules.root.state.totalplay.catNetflix = response.data.lResults.catNetflix;
+                    this.$store._modules.root.state.totalplay.imgBannerNetflix = response.data.lResults.imgBannerNetflix;
+                    this.$store._modules.root.state.totalplay.imgBannerAmazon = response.data.lResults.imgBannerAmazon;
+                    this.$store._modules.root.state.totalplay.imgSlider = response.data.lResults.imgSlider;
+                    this.$store._modules.root.state.totalplay.main = "height:400px; background: url("+response.data.lResults.main+"); background-size: 100% 100%;";
                     setTimeout(() => {
                         this.$store._modules.root.state.totalplay.loading = false;
                     }, 1000);
@@ -100,6 +104,13 @@ export const Globals = {
                 array[i].idx = sum;
                 data.push(array[i]);
             }
+            return data;
+        },
+        filesArrayImg(imgs){
+            let data = [];
+                if( imgs.length > 0 ){
+                    data = [{ id: imgs[0].id, name: imgs[0].fileName ,url: imgs[0].fileNameHash }];
+                }
             return data;
         }
     }

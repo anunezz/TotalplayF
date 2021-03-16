@@ -15,15 +15,12 @@ class CreateLevelsOfAttentionsTable extends Migration
     {
         Schema::create('levels_of_attentions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('attention_id')->nullable();
-            $table->string('observations_contacted',100)->nullable();
-            $table->string('observations_finish',100)->nullable();
+            $table->unsignedBigInteger('status_attention_id')->default(1);
+            $table->string('no_account',100)->nullable();
             $table->boolean('isActive')->default(1);
             $table->timestamps();
 
-            $table->foreign('attention_id')->references('id')->on('cat_attentions');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('status_attention_id')->references('id')->on('cat_attentions');
         });
     }
 

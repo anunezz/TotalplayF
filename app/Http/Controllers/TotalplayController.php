@@ -10,6 +10,7 @@ use App\Http\Models\Wallpaper;
 use App\Http\Models\Contact;
 use App\Http\Models\FilePromotionModal;
 use App\Http\Models\LevelsOfAttention;
+use App\Http\Models\ImgWrallpapers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Models\Cats\CatState;
 use App\Http\Models\Cats\CatPromotion; //quitar
@@ -117,12 +118,36 @@ class TotalplayController extends Controller
                 $data['type'] = 3;
                 $catNetflix = CatPromotion::Filter($data)->get();
 
+                $imgBannerNetflix   =  optional(ImgWrallpapers::where('cat_wrallpaper_id',4)->first())->fileNameHash;
+                $imgBannerAmazon    =  optional(ImgWrallpapers::where('cat_wrallpaper_id',5)->first())->fileNameHash;
+                $main               =  optional(ImgWrallpapers::where('cat_wrallpaper_id',6)->first())->fileNameHash;
+
+                // 'cat_wrallpaper_id',
+                // 'fileName',
+                // 'fileNameHash',
+                // 'url',
+                // 'isUrl',
+                // 'isActive'];
+
+                // $imgSlider = collect([
+                //     [
+                //     'fileName' => 'ejemplo1'
+                //     'fileNameHash' =>
+                //     ]
+                // ]);  //slider 2
+
+                $imgSlider = [];
+
                 return response()->json([
                     'success' => true,
                     'lResults' => [
                         "catHome" => $catHome,
                         "catAmazon" => $catAmazon,
                         "catNetflix" => $catNetflix,
+                        "imgBannerNetflix" => $imgBannerNetflix,
+                        "imgBannerAmazon" => $imgBannerAmazon,
+                        "imgSlider" => $imgSlider,
+                        "main" => $main
                     ],
                 ], 200);
             }else{
@@ -850,5 +875,216 @@ class TotalplayController extends Controller
         }
     }
 
+    public function ImgWrallpapersNetflix(Request $request){
+        try {
+            DB::beginTransaction();
+            if (validFile::valid($request->document)) {
+                $file = ImgWrallpapers::where('cat_wrallpaper_id',4)->count();
+                if( $file === 0 ){
+                    $file = new ImgWrallpapers();
+                }else{
+                    $file = ImgWrallpapers::where('cat_wrallpaper_id',4)->first();
+                }
+
+                $document = $request->document;
+                $file->cat_wrallpaper_id = 4;
+                //$file->fileNameHash = asset($document->store('imgBannerNetflix'));
+                $file->fileNameHash = Storage::url($document->store('public/imgBannerNetflix'));
+                $file->fileName = $document->getClientOriginalName();
+                $file->save();
+
+                $imgPack = [
+                    'id' => $file->id,
+                    'name' => $file->fileName,
+                    'url' => $file->fileNameHash
+                ];
+
+                DB::commit();
+
+                return response()->json([
+                    'success' => true,
+                    'documentId' => $imgPack
+                ]);
+
+            } else {
+                return response()->json([
+                    'success' => false,
+                ]);
+            }
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function ImgWrallpapersAmazon(Request $request){
+        try {
+            DB::beginTransaction();
+            if (validFile::valid($request->document)) {
+
+                $file = ImgWrallpapers::where('cat_wrallpaper_id',5)->count();
+                if( $file === 0 ){
+                    $file = new ImgWrallpapers();
+                }else{
+                    $file = ImgWrallpapers::where('cat_wrallpaper_id',5)->first();
+                }
+
+                $document = $request->document;
+                $file->cat_wrallpaper_id = 5;
+                //$file->fileNameHash = asset($document->store('imgBannerAmazon'));
+                $file->fileNameHash = Storage::url($document->store('public/imgBannerAmazon'));
+                $file->fileName = $document->getClientOriginalName();
+                $file->save();
+
+                $imgPack = [
+                    'id' => $file->id,
+                    'name' => $file->fileName,
+                    'url' => $file->fileNameHash
+                ];
+
+                DB::commit();
+
+                return response()->json([
+                    'success' => true,
+                    'documentId' => $imgPack
+                ]);
+
+            } else {
+                return response()->json([
+                    'success' => false,
+                ]);
+            }
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function ImgWrallpapersMain(Request $request){
+        try {
+            DB::beginTransaction();
+            if (validFile::valid($request->document)) {
+
+                $file = ImgWrallpapers::where('cat_wrallpaper_id',6)->count();
+                if( $file === 0 ){
+                    $file = new ImgWrallpapers();
+                }else{
+                    $file = ImgWrallpapers::where('cat_wrallpaper_id',6)->first();
+                }
+
+                $document = $request->document;
+                $file->cat_wrallpaper_id = 6;
+                //$file->fileNameHash = asset($document->store('imgBannerMain'));
+                $file->fileNameHash = Storage::url($document->store('public/imgBannerMain'));
+                $file->fileName = $document->getClientOriginalName();
+                $file->save();
+
+                $imgPack = [
+                    'id' => $file->id,
+                    'name' => $file->fileName,
+                    'url' => $file->fileNameHash
+                ];
+
+                DB::commit();
+
+                return response()->json([
+                    'success' => true,
+                    'documentId' => $imgPack
+                ]);
+
+            } else {
+                return response()->json([
+                    'success' => false,
+                ]);
+            }
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function getBanner(){
+        try{
+
+            $netflix = ImgWrallpapers::where('cat_wrallpaper_id',4)->get(); // netflix
+            $amazon  = ImgWrallpapers::where('cat_wrallpaper_id',5)->get(); // amazon
+            $main    = ImgWrallpapers::where('cat_wrallpaper_id',6)->get(); // main
+
+            return response()->json([
+                'success' => true,
+                'lResults' =>  [
+                    "netflix" => $netflix,
+                    "amazon"  => $amazon,
+                    "main"    => $main
+                ],
+            ], 200);
+
+        } catch (Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al mostrar información ' . $e->getMessage()
+            ], 300);
+        }
+    }
+
+    public function ImgSlider(Request $request){
+        try {
+            DB::beginTransaction();
+            if (validFile::valid($request->document)) {
+
+                $file = ImgWrallpapers::where('cat_wrallpaper_id',2)->count();
+                if( $file === 0 ){
+                    $file = new ImgWrallpapers();
+                }else{
+                    $file = ImgWrallpapers::where('cat_wrallpaper_id',2)->first();
+                }
+
+                $document = $request->document;
+                $file->cat_wrallpaper_id = 2;
+                $file->isActive = 0;
+                //$file->fileNameHash = asset($document->store('imgSlider'));
+                $file->fileNameHash = Storage::url($document->store('public/imgSlider'));
+                $file->fileName = $document->getClientOriginalName();
+                $file->save();
+
+                $imgPack = [
+                    'id' => $file->id,
+                    'name' => $file->fileName,
+                    'url' => $file->fileNameHash
+                ];
+
+                DB::commit();
+
+                return response()->json([
+                    'success' => true,
+                    'files' => $imgPack
+                ]);
+
+            } else {
+                return response()->json([
+                    'success' => false,
+                ]);
+            }
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
 
 }

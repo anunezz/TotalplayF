@@ -15,10 +15,11 @@ class CreateImgWrallpapersTable extends Migration
     {
         Schema::create('img_wrallpapers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('cat_wrallpaper_id');
+            $table->unsignedBigInteger('cat_wrallpaper_id')->default(0);
             $table->text('fileName')->nullable();
             $table->text('fileNameHash')->nullable();
+            $table->text('url')->nullable();
+            $table->boolean('isUrl')->default(0);
             $table->boolean('isActive')->default(1);
             $table->timestamps();
 

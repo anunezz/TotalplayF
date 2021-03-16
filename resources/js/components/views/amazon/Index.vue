@@ -17,7 +17,7 @@ export default {
                 img: {
                     triple: '/img/publico/promociones/amazon/title/Titulo_amazon_triple.svg',
                     double: '/img/publico/promociones/amazon/title/Titulo_amazon_double.svg',
-                    banner: '/img/publico/BanerAmazon.png'
+                    banner: this.$store._modules.root.state.totalplay.imgBannerAmazon
                 },
                 catPromotion: this.$store._modules.root.state.totalplay.catAmazon
             };

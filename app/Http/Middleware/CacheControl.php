@@ -48,6 +48,9 @@ class CacheControl
             $response->header('Cache-Control', "no-cache='Set-Cookie', no-store, must-revalidate");
             $response->header('pragma', 'no-cache');
             $response->header('no-cache', 'Set-Cookie, Set-Directiva Cookie2');
+            //$response->header ("Cache-Control: no-cache, must-revalidate");
+            //$response->header ("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+            //$response->header ("Expires: Fri, 14 Mar 1980 20:53:00 GMT");
         }
 
         return $response;

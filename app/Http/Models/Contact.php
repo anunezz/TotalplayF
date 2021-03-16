@@ -15,6 +15,8 @@ class Contact extends Model
         'phone',
         'promotion_code'];
 
+    protected $with = ['attention'];
+
     public function city()
     {
         return $this->belongsTo(CatCity::class,'city_id','id');

@@ -17,13 +17,13 @@
     <div class="col-12 px-5 py-3">
         <el-tabs type="border-card" style="width: 100%;">
             <el-tab-pane label="Fondo de pantalla">
-                <new-pack-wallpaper></new-pack-wallpaper>
+                <new-pack-wallpaper />
             </el-tab-pane>
             <el-tab-pane label="Slider imagenes">
-                Actualizar slider
+                <slider-component />
             </el-tab-pane>
             <el-tab-pane label="Paquetes Banners">
-                Actualizar paquetes banners
+                <banner-component />
             </el-tab-pane>
         </el-tabs>
     </div>
@@ -33,9 +33,13 @@
 
 <script>
 import newPackswallpaper from '../../../../fragments/FormNewWallpaper';
+import newFormBanner from '../../../../fragments/FormBanner';
+import newFormSlider from '../../../../fragments/FormSlider';
 export default {
     components:{
         'new-pack-wallpaper': newPackswallpaper,
+        'banner-component': newFormBanner,
+        'slider-component': newFormSlider,
     },
     data(){
         return {

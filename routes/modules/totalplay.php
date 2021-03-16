@@ -27,4 +27,9 @@
         Route::post('fileWallpaper', 'TotalplayController@fileWallpaper');
         Route::post('saveWallpaper', 'TotalplayController@saveWallpaper');
         Route::get('getWallpaper', 'TotalplayController@getWallpaper');
+        Route::get('getBanner', 'TotalplayController@getBanner');
+        Route::post('ImgWrallpapersNetflix', 'TotalplayController@ImgWrallpapersNetflix');
+        Route::post('ImgWrallpapersAmazon', 'TotalplayController@ImgWrallpapersAmazon');
+        Route::post('ImgWrallpapersMain', 'TotalplayController@ImgWrallpapersMain');
+        Route::post('ImgSlider', 'TotalplayController@ImgSlider');
     });

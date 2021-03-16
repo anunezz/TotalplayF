@@ -35,10 +35,22 @@ class CatAttentionSeeder extends Seeder
             ],
             [
                 'id' => 4,
-                'name' => 'Exitoso',
+                'name' => 'Instalado',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+            [
+                'id' => 5,
+                'name' => 'Vencido',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 6,
+                'name' => 'Finalizado',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
         ]);
     }
 }

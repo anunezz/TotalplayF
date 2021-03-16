@@ -8,7 +8,11 @@ const state = {
     creenWidth: 0,
     creenHeight: 0,
     modalForm: false,
-    Wallpaper:null
+    Wallpaper:null,
+    imgBannerNetflix:null,
+    imgBannerAmazon:null,
+    imgSlider:[],
+    main:null
 };
 
 const mutations = {
