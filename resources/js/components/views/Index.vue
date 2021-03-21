@@ -1,5 +1,5 @@
 <template>
-<div :style="$store._modules.root.state.totalplay.Wallpaper">
+<div class="div-index" :style="$store._modules.root.state.totalplay.Wallpaper">
 
     <loading-component v-if="$store._modules.root.state.totalplay.loading" />
 
@@ -74,7 +74,7 @@
         <div class="bg-light" style="color: #6d5c96;">
             <div class="d-flex flex-wrap py-2" :class="{'justify-content-between':(screenWidth >= 469 ),'justify-content-center': (screenWidth <= 469 )}">
                 <div class="d-flex cobertura">
-                    <div class="animate__animated animate__backInLeft animate__delay-3s">Selecciona tu cobertura: <a @click="modal = true, section = true" style="cursor:pointer;"><i class="el-icon-location-outline"></i> {{ state_name === null ? 'Ciudad de México': state_name }} </a></div>
+                    <div class="animate__animated animate__backInLeft animate__delay-3s">Selecciona tu ciudad: <a @click="modal = true, section = true" style="cursor:pointer;"><i class="el-icon-location-outline"></i> {{ state_name === null ? 'Ciudad de México': state_name }} </a></div>
                 </div>
                 <div class="d-flex cobertura" v-if="$store.state.user.fullname">
                     <div class="animate__animated animate__backInRight animate__delay-3s">
@@ -98,7 +98,7 @@
             </div>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background: #212121 !important;">
             <div class="container-fluid">
                 <a @click="linkss" class="animate__animated animate__pulse animate__infinite infinite">
                     <router-link  class="navbar-brand" to="/">
@@ -113,13 +113,13 @@
                 <div class="collapse navbar-collapse navbar-nav text-center text-sm-center" id="navbarNav">
                     <ul class="nav navbar-nav animatedd fastt fadeInn" :class="{ 'mc-auto': (screenWidth <= 991 ),'ml-auto': (screenWidth >= 992 )}">
                         <li @click="linkss" class="nav-item">
-                            <router-link to="/" class="nav-link" aria-current="page"> <span id="inicio"> Paquetes hogar </span> </router-link>
+                            <router-link to="/" class="nav-link" aria-current="page"> <span id="inicio"> Residencial </span> </router-link>
                         </li>
                         <li @click="linkss" class="nav-item">
-                            <router-link to="/netflix" exact class="nav-link" aria-current="page"> <span id="netflix"> Paquetes Netflix </span> </router-link>
+                            <router-link to="/netflix" exact class="nav-link" aria-current="page"> <span id="netflix"> Totalplay + Netflix </span> </router-link>
                         </li>
                         <li @click="linkss" class="nav-item">
-                            <router-link to="/amazon" exact class="nav-link" aria-current="page"> <span id="amazon"> Paquetes Amazon </span> </router-link>
+                            <router-link to="/amazon" exact class="nav-link" aria-current="page"> <span id="amazon"> Totalplay + Amazon Prime </span> </router-link>
                         </li>
                         <li class="nav-item" v-if="$store.state.user.fullname">
                             <router-link @click="linkss" to="/login" exact class="nav-link" aria-current="page"> <span id="dashboard"> Acceso </span> </router-link>
@@ -133,13 +133,13 @@
 
     <div style="width: 100%; height: 48px;"></div>
 
-    <router-view class="py-5" />
+    <router-view  />
 
-    <div class="bg-inverse text-white py-3 bg-dark">
+    <div class="bg-inverse text-white py-1 bg-dark" style="background: #212121 !important;">
         <div class="container text-center">
             <el-row :gutter='20'>
                 <el-col :span='24'>
-                    <div style="padding: 8px 0px;">
+                    <div style="padding: 4px 0px;">
                         <p>
                             <a @click="linkss">
                                 <router-link to="/terminos-y-condiciones" > Terminos y condiciones. </router-link>
@@ -215,7 +215,7 @@ computed: {
         return aux;
     },
     titleModal(){
-        return this.section ? "Selecciona la cobertura de tu estado" : "Iniciar sesión";
+        return this.section ? "Selecciona la cobertura de tu ciudad" : "Iniciar sesión";
     }
 },
 created() {
@@ -363,14 +363,14 @@ methods: {
         switch (aux) {
             case '/netflix':
             {
-                document.getElementById("netflix").style.color = "#b12222";
+                document.getElementById("netflix").style.color = "#B71C1C";
                 document.getElementById("inicio").style.color = "#fff";
                 document.getElementById("amazon").style.color = "#fff";
                 break;
             }
             case '/amazon':
             {
-                document.getElementById("amazon").style.color = "#427b96";
+                document.getElementById("amazon").style.color = "#81D4FA";
                 document.getElementById("inicio").style.color = "#fff";
                 document.getElementById("netflix").style.color = "#fff";
                 break;
@@ -378,7 +378,7 @@ methods: {
             case '/':
             {
                 document.getElementById("amazon").style.color = "#fff";
-                document.getElementById("inicio").style.color = "rgb(210, 165, 69)";
+                document.getElementById("inicio").style.color = "#FFEB3B";
                 document.getElementById("netflix").style.color = "#fff";
                 break;
             }
@@ -392,7 +392,7 @@ methods: {
             default:
             {
                 document.getElementById("amazon").style.color = "#fff";
-                document.getElementById("inicio").style.color = "rgb(210, 165, 69)";
+                document.getElementById("inicio").style.color = "#FFEB3B";
                 document.getElementById("netflix").style.color = "#fff";
                 break;
             }
@@ -405,7 +405,6 @@ methods: {
 
 
 <style scoped>
-
 .cobertura{
     text-align: right;
     align-items: flex-end;

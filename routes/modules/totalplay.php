@@ -32,4 +32,6 @@
         Route::post('ImgWrallpapersAmazon', 'TotalplayController@ImgWrallpapersAmazon');
         Route::post('ImgWrallpapersMain', 'TotalplayController@ImgWrallpapersMain');
         Route::post('ImgSlider', 'TotalplayController@ImgSlider');
+        Route::post('footer2', 'TotalplayController@footer2');
+        Route::get('getFooter2', 'TotalplayController@getFooter2');
     });

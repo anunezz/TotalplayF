@@ -2,7 +2,7 @@
 <div>
     <div class="container">
 
-        <div :style="'width: 100%; '+ mediaBanner" v-if="items.page != 'home'">
+        <div style="'width: 100%; margin-top: 45px;" v-if="items.page != 'home'">
             <img style="width: 100%; max-height: 500px;" :src="items.img.banner" :alt="items.img.banner">
         </div>
 
@@ -11,10 +11,10 @@
                 <div class="col-md-12">
                     <div class="row d-flex justify-content-center">
                         <div class="col-xs-12 col-sm-12 col-md-4 button-spacing">
-                            <el-button style="width: 100%;" type="primary" plain round  @click="btn_double_triple = true,setPacks(true)"> Triple Play </el-button>
+                            <el-button style="width: 100%;" type="primary" plain round  @click="btn_double_triple = true,setPacks(true)"> Internet + TV </el-button>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-4">
-                            <el-button style="width: 100%;" type="primary" plain round @click="btn_double_triple = false,setPacks(false)">Doble Play</el-button>
+                            <el-button style="width: 100%;" type="primary" plain round @click="btn_double_triple = false,setPacks(false)"> Internet </el-button>
                         </div>
                     </div>
                 </div>
@@ -23,16 +23,16 @@
                 <img :style="mediaImgTitle+' display:block; margin: 0px auto;'"  :src="items.img.triple" :alt="items.img.triple">
             </div>
 
-            <div class="col-md-12 py-3" v-if="items.page === 'home'">
-                <img v-if="btn_double_triple === true"  style="width: 100%; height: 180px; display:block; margin: 0px auto;"  :src="items.img.triple" :alt="items.img.triple">
-                <img v-if="btn_double_triple === false" style="width: 100%; height: 180px; display:block; margin: 0px auto;"  :src="items.img.double" :alt="items.img.double">
+            <div class="col-md-12 py-4" v-if="items.page === 'home'">
+                <img v-if="btn_double_triple === true"  :style="mediaImgTitleHome+' height: 100px; display:block; margin: 0px auto;'"  :src="items.img.triple" :alt="items.img.triple">
+                <img v-if="btn_double_triple === false" :style="mediaImgTitleHome+' height: 100px; display:block; margin: 0px auto;'"  :src="items.img.double" :alt="items.img.double">
             </div>
 
             <card-component :items="items.catPromotion" v-if="items.page === 'home'" />
             <card-component :items="catTriple" v-if="items.page !== 'home'" />
 
-            <div class="py-4 col-md-12 container" v-if="items.page !== 'home'">
-                <img style="height: 150px; width: 100%; display:block; margin: 0px auto;" :src="items.img.double" :alt="items.img.double">
+            <div class="py-4 col-md-12" v-if="items.page !== 'home'">
+                <img :style="mediaImgTitle+' display:block; margin: 0px auto;'" :src="items.img.double" :alt="items.img.double">
             </div>
 
             <card-component :items="catDouble" v-if="items.page !== 'home'" />
@@ -79,15 +79,22 @@ export default {
                 }
             return data;
         },
-        mediaBanner() {
-            let aux = "margin-top: -2px; !important"; //computadora
+        // mediaBanner() {
+        //     let aux = "margin-top: 45px;"; //computadora
+        //     if(this.$screen.width < 950){
+        //         aux = "margin-top: 45px;";    //celular
+        //     }
+        //     return aux;
+        // },
+        mediaImgTitle() {
+            let aux = "width: 50%;"; //escritorio
             if(this.$screen.width < 950){
-                aux = "margin-top: 22px;";    //celular
+                aux = "width: 100%;"; //celular
             }
             return aux;
         },
-        mediaImgTitle() {
-            let aux = "width: 50%;"; //escritorio
+        mediaImgTitleHome() {
+            let aux = "width: 30%;"; //escritorio
             if(this.$screen.width < 950){
                 aux = "width: 100%;"; //celular
             }

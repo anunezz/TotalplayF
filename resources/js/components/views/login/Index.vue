@@ -1,5 +1,5 @@
 <template>
-    <div class="row container-fluid mt-4">
+    <div class="row container-fluid mt-4 py-5">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">

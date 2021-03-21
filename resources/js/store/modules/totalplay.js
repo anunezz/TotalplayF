@@ -12,7 +12,13 @@ const state = {
     imgBannerNetflix:null,
     imgBannerAmazon:null,
     imgSlider:[],
-    main:null
+    main:null,
+    footer2:{
+        isActive:false,
+        message: null,
+        background: null,
+        cellPhone:null
+    }
 };
 
 const mutations = {

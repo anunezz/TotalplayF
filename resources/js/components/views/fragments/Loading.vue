@@ -49,8 +49,8 @@
     width: 100%;
     height: 100%;
     border: solid 28px transparent;
-    border-top-color: #f7fa1d;
-    border-left-color: #f7fa1d;
+    border-top-color: #DBE442;
+    border-left-color: #DBE442;
     border-radius: 50%;
     animation: loader 1.5s linear infinite;
 }
@@ -62,8 +62,8 @@
     width: 70%;
     height: 70%;
     border: solid 24px transparent;
-    border-top-color: #ea1dfa;
-    border-left-color: #ea1dfa;
+    border-top-color: #59CBE8;
+    border-left-color: #59CBE8;
     border-radius: 50%;
     animation: loader2 1.7s linear infinite;
 }
@@ -75,24 +75,24 @@
     width: 50%;
     height: 50%;
     border: solid 20px transparent;
-    border-top-color: #1dfad0;
-    border-left-color: #1dfad0;
+    border-top-color: #8246AF;
+    border-left-color: #8246AF;
     border-radius: 50%;
     animation: loader3 2s linear infinite;
 }
 
 @keyframes totalLoading {
     0% {
-        color: red;
+        color: #E4002B;
     }
     33% {
-        color: green;
+        color: #DBE442;
     }
     66% {
-        color: blue;
+        color: #59CBE8;
     }
     99% {
-        color: pink;
+        color: #8246AF;
     }
 }
 

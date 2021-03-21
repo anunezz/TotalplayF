@@ -1,6 +1,6 @@
 <template>
-<div class="animatedd fadeInn fastt">
-    <div style="width: 100%; margin: 0px auto;">
+<div>
+    <div style="width: 100%; margin: 0px auto; margin-top: 48px;">
         <div class="row no-gutters">
             <div class="col-xs-12 col-sm-12 col-md-8">
                 <el-carousel :interval="6000" style="width: 100%;"
@@ -32,25 +32,33 @@
     <div style="width: 50%; height: 30px;"></div>
 
     <promotions-component :items="objectItems" />
+    <div style="width: 100%; height: 30px;"></div>
+    <whatsapp-component />
+    <footer2-component />
+
 
 </div>
 </template>
 
 <script>
-import FormMain from '../fragments/FormMain';
-import Promotions from '../fragments/Promotions';
+import FormMainComponent from '../fragments/FormMain';
+import PromotionsComponent from '../fragments/Promotions';
+import WhatsappComponent from "../fragments/Whatsapp";
+import Footer2Component from "../fragments/Footer2";
 export default {
     components:{
-        'form-main-component': FormMain,
-        'promotions-component': Promotions,
+        'form-main-component': FormMainComponent,
+        'promotions-component': PromotionsComponent,
+        'whatsapp-component':WhatsappComponent,
+        'footer2-component':Footer2Component
     },
     computed:{
         objectItems(){
             return {
                 page: 'home',
                 img: {
-                    triple: 'img/publico/promociones/home/title/Titulo_home_triple.svg',
-                    double: 'img/publico/promociones/home/title/Titulo_home_double.svg'
+                    triple: 'img/publico/promociones/home/title/Titulos-Hogar-Tv-Internet.png',
+                    double: 'img/publico/promociones/home/title/Titulos-Hogar-Internet.png'
                 },
                 catPromotion: this.$store._modules.root.state.totalplay.catHome
             };
@@ -77,6 +85,10 @@ export default {
 
 
 <style>
+.div-index .footer2{
+    position: sticky;
+    bottom: 0px;
+}
 
 img[src*=".svg"].tp-popup-log, img.tp-popup-log {
     max-width: 170px;

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Models\ImgPromotion;
 use App\Http\Models\Wallpaper;
 use App\Http\Models\Contact;
+use App\Http\Models\Footer2;
 use App\Http\Models\FilePromotionModal;
 use App\Http\Models\LevelsOfAttention;
 use App\Http\Models\ImgWrallpapers;
@@ -36,6 +37,7 @@ class TotalplayController extends Controller
     public function setContact(Request $request){
         try{
             if ($request->wantsJson()){
+
                 $request->validate([
                     'name' => 'nullable|string|max:100|'.$this->alphanumeric,
                     'city_id' => 'required|numeric',
@@ -121,21 +123,17 @@ class TotalplayController extends Controller
                 $imgBannerNetflix   =  optional(ImgWrallpapers::where('cat_wrallpaper_id',4)->first())->fileNameHash;
                 $imgBannerAmazon    =  optional(ImgWrallpapers::where('cat_wrallpaper_id',5)->first())->fileNameHash;
                 $main               =  optional(ImgWrallpapers::where('cat_wrallpaper_id',6)->first())->fileNameHash;
-
-                // 'cat_wrallpaper_id',
-                // 'fileName',
-                // 'fileNameHash',
-                // 'url',
-                // 'isUrl',
-                // 'isActive'];
-
-                // $imgSlider = collect([
-                //     [
-                //     'fileName' => 'ejemplo1'
-                //     'fileNameHash' =>
-                //     ]
-                // ]);  //slider 2
-
+                $Footer2 = Footer2::count();
+                if($Footer2 === 0){
+                    $Footer2 = collect([
+                    'isActive' => 0,
+                    'message' => 'Registra un dato en la bda.',
+                    'cellPhone' => '555555555',
+                    'background' => "red"
+                    ]);
+                }else{
+                    $Footer2 = Footer2::first();
+                }
                 $imgSlider = [];
 
                 return response()->json([
@@ -147,7 +145,8 @@ class TotalplayController extends Controller
                         "imgBannerNetflix" => $imgBannerNetflix,
                         "imgBannerAmazon" => $imgBannerAmazon,
                         "imgSlider" => $imgSlider,
-                        "main" => $main
+                        "main" => $main,
+                        "Footer2" => $Footer2
                     ],
                 ], 200);
             }else{
@@ -1080,6 +1079,64 @@ class TotalplayController extends Controller
         } catch (Exception $e) {
             DB::rollBack();
 
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function footer2(Request $request){
+        try {
+            DB::beginTransaction();
+            $data = $request->all();
+            //dd($data);
+
+            $footer2 =  Footer2::count();
+            if($footer2 === 0){
+                $footer2 = new Footer2();
+            }else{
+                $footer2 =  Footer2::first();
+            }
+
+            $footer2->message = $data['message'];
+            $footer2->background = $data['color'];
+            $footer2->cellPhone = $data['cellPhone'];
+            $footer2->isActive = ($data['isActive'] === true?1:0);
+            $footer2->save();
+
+            DB::commit();
+                return response()->json([
+                    'success' => true,
+                ]);
+
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function getFooter2(){
+        try {
+            $footer2 =  Footer2::count();
+            if($footer2 === 0){
+                $footer2 = collect([]);
+            }else{
+                $footer2 =  Footer2::first();
+                $footer2->isActive = ($footer2->isActive ===1 ? true: false);
+
+            }
+
+            return response()->json([
+                'success' => true,
+                'lResults' => ['footer2' => $footer2]
+            ]);
+
+        } catch (Exception $e) {
             return response()->json([
                 'success' => false,
                 'message' => $e->getMessage()

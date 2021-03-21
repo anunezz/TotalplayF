@@ -25,6 +25,9 @@
             <el-tab-pane label="Paquetes Banners">
                 <banner-component />
             </el-tab-pane>
+            <el-tab-pane label="Pie de pagina">
+                <footer2-component />
+            </el-tab-pane>
         </el-tabs>
     </div>
 
@@ -35,11 +38,13 @@
 import newPackswallpaper from '../../../../fragments/FormNewWallpaper';
 import newFormBanner from '../../../../fragments/FormBanner';
 import newFormSlider from '../../../../fragments/FormSlider';
+import newFormFooter2 from '../../../../fragments/newFormFooter2';
 export default {
     components:{
         'new-pack-wallpaper': newPackswallpaper,
         'banner-component': newFormBanner,
         'slider-component': newFormSlider,
+        'footer2-component': newFormFooter2,
     },
     data(){
         return {

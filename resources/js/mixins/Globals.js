@@ -80,6 +80,7 @@ export const Globals = {
                     this.$store._modules.root.state.totalplay.imgBannerNetflix = response.data.lResults.imgBannerNetflix;
                     this.$store._modules.root.state.totalplay.imgBannerAmazon = response.data.lResults.imgBannerAmazon;
                     this.$store._modules.root.state.totalplay.imgSlider = response.data.lResults.imgSlider;
+                    this.$store._modules.root.state.totalplay.footer2 = response.data.lResults.Footer2;
                     this.$store._modules.root.state.totalplay.main = "height:400px; background: url("+response.data.lResults.main+"); background-size: 100% 100%;";
                     setTimeout(() => {
                         this.$store._modules.root.state.totalplay.loading = false;
