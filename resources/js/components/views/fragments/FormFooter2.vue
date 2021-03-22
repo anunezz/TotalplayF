@@ -1,16 +1,16 @@
 <template>
-    <div style="margin-top: 15px;">
+    <div>
         <el-row :gutter='20'>
             <el-col :span='24'>
                 <el-form :model="ruleForm" ref="ruleForm" label-position="top" >
                     <el-row :gutter='20'>
-                        <el-col :span='14'>
+                        <el-col :span='24'>
                             <el-form-item prop="phone" :rules="[
                                     { validator: validatorPhone, trigger: ['blur','change'] },
                                     { min:10 ,max: 10, message: message.ruleForm.max_characters_phone , trigger: ['blur','change'] }]">
-                                <el-input size="mini" :style="mediaFormFields.input" placeholder="Número telefonico"
+                                <el-input :clearable="true" size="mini" placeholder="Número telefonico"
                                 v-model="ruleForm.phone">
-                                    <el-button slot="append" :style="mediaFormFields.button" type="success" plain @click="SubmitForm" icon="el-icon-phone-outline" size="mini">Te llamamos</el-button>
+                                    <el-button slot="append" type="success" plain @click="SubmitForm" icon="el-icon-phone-outline" size="mini">Te llamamos</el-button>
                                 </el-input>
                             </el-form-item>
                         </el-col>
@@ -52,9 +52,9 @@ export default {
             return aux;
         },
         mediaFormFields() {
-            let aux = { input: 'width: 380px;' ,button: 'width: 150px;' }; //escritorio
+            let aux = { input: 'width: 600px;' ,button: 'width: 150px;' }; //escritorio
             if(this.$screen.width < 950){
-                aux = { input: 'width: 320px;' ,button: 'width: 130px;' }; //celular
+                aux = { input: 'width: 700px;' ,button: 'width: 150px;' }; //celular
             }
             return aux;
         }

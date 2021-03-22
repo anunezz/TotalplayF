@@ -48,13 +48,8 @@ class CatPromotion extends Model
     public function scopeFilter($query, $data)
     {
         return $query->where(function($q) use ($data){
-
-            //dd($data);
-
             if($data['type'] === 1){
-                if ( is_bool($data['typePack']) === true ){ // evaluando si es paquete home
-                    $q->where("triple_double",($data['typePack'] === true ? 1:0));
-                }
+                $q->where("triple_double", ($data['typePack'] ? 1 : 2) );
             }
 
             $q->where("frontier", $data['city'] )->where('type',$data['type'])->where('isActive',1);

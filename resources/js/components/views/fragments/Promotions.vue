@@ -2,7 +2,7 @@
 <div>
     <div class="container">
 
-        <div style="'width: 100%; margin-top: 45px;" v-if="items.page != 'home'">
+        <div :style="'width: 100%; '+mediaBanner" v-if="items.page != 'home'">
             <img style="width: 100%; max-height: 500px;" :src="items.img.banner" :alt="items.img.banner">
         </div>
 
@@ -79,13 +79,13 @@ export default {
                 }
             return data;
         },
-        // mediaBanner() {
-        //     let aux = "margin-top: 45px;"; //computadora
-        //     if(this.$screen.width < 950){
-        //         aux = "margin-top: 45px;";    //celular
-        //     }
-        //     return aux;
-        // },
+        mediaBanner() {
+            let aux = "margin-top: 45px;"; //computadora
+            if(this.$screen.width < 800){
+                aux = "margin-top: 68px;";    //celular
+            }
+            return aux;
+        },
         mediaImgTitle() {
             let aux = "width: 50%;"; //escritorio
             if(this.$screen.width < 950){

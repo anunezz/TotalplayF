@@ -111,7 +111,8 @@ class TotalplayController extends Controller
                 ]);
 
                 $data = $request->all();
-                $data['city'] = ( $data['city'] === 2 | $data['city'] === 3 | $data['city'] === 4)? 2 : 1;
+                $CatCity = CatCity::find($data['city'])->frontier;
+                $data['city'] = $CatCity;
                 $data['type'] = 1;
                 $catHome = CatPromotion::Filter($data)->get();
                 $data['typePack'] = null;
@@ -127,7 +128,7 @@ class TotalplayController extends Controller
                 if($Footer2 === 0){
                     $Footer2 = collect([
                     'isActive' => 0,
-                    'message' => 'Registra un dato en la bda.',
+                    'message' => 'Registra un dato en la base de datos :)',
                     'cellPhone' => '555555555',
                     'background' => "red"
                     ]);
@@ -164,10 +165,6 @@ class TotalplayController extends Controller
         try{
 
         $user = auth()->user()->id;
-        //->with(['codepromotion']);
-
-        //dd(CodePromotion::where('user_id',$user)->get());
-
         $results = Contact::with('city','attention')->where('isActive',1)->orderBy('id','desc')->get();
 
         return response()->json([
@@ -186,9 +183,7 @@ class TotalplayController extends Controller
     public function exportContacts(Request $request)
     {
         try {
-
             $data = $request->all();
-
             return Excel::download(new exportContacts($data), 'Contactos_Totalplay.xlsx');
 
         } catch (Exception $e) {
