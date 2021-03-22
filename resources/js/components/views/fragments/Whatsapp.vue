@@ -2,17 +2,37 @@
 <div>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <el-tooltip class="item" effect="dark" content="Llamanos y consiguiras mas promociones" placement="left-start">
+        <a href="tel:+525527529436" class="cellphone" target="_blank"> <i class="fa fa-phone phone-icon"></i></a>
+    </el-tooltip>
+
     <el-tooltip class="item" effect="dark" content="Contacta para más promociones" placement="left-start">
         <a href="https://wa.me/525527529436?text=Contactanos%20para%20más%20promociones%20Totalplay" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
     </el-tooltip>
     <el-tooltip class="item" effect="dark" content="Llamanos y consiguiras mas promociones" placement="left-start">
-        <a href="https://msng.link/o/?@Totalplaycontratacionpersonaliza=tg" class="telegram" target="_blank"> <i class="fa fa-telegram telegram-icon"></i></a>
+        <a href="https://t.me/Totalplaycontratacionpersonaliza" class="telegram" target="_blank"> <i class="fa fa-telegram telegram-icon"></i></a>
     </el-tooltip>
+
 
 </div>
 </template>
 
 <style>
+.cellphone {
+    text-decoration: none;
+    cursor:pointer;
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:150px;
+    right:40px;
+    background-color:#8246AF;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    z-index:100;
+}
 .whatsapp {
     text-decoration: none;
     cursor:pointer;
@@ -45,21 +65,34 @@
     text-decoration: none;
 }
 
-.whatsapp-icon, .telegram-icon{
+.whatsapp-icon, .telegram-icon, .phone-icon{
     margin-top: 13px;
 }
 
 @media screen and (min-width: 0px) and (max-width: 1054px) {
-    .telegram {
-        bottom: 60px;
+    .phone-icon{
+        margin-top: 8px;
     }
 
-    .whatsapp, .telegram{
+    .whatsapp, .telegram, .cellphone{
         width:  45px;
         height: 45px;
         right: 15px;
     }
 
+    .cellphone {
+        text-decoration: none;
+        cursor:pointer;
+        position:fixed;
+        top: 305px;
+        background-color: #8246AF;
+        color:#FFF;
+        border-radius:50px;
+        text-align:center;
+        font-size:30px;
+        z-index:120;
+        text-decoration: none;
+    }
 
     .telegram {
         text-decoration: none;
@@ -90,7 +123,7 @@
 
 
 
-    .whatsapp-icon, .telegram-icon{
+    .whatsapp-icon, .telegram-icon, .telegram-icon{
         margin-top: 0px;
     }
 }

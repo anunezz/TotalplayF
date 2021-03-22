@@ -3,7 +3,7 @@
     <div class="container">
 
         <div :style="'width: 100%; '+mediaBanner" v-if="items.page != 'home'">
-            <img style="width: 100%; max-height: 500px;" :src="items.img.banner" :alt="items.img.banner">
+            <img loading="lazy" style="width: 100%; max-height: 500px;" :src="items.img.banner" :alt="items.img.banner">
         </div>
 
         <div class="row">
@@ -20,19 +20,19 @@
                 </div>
             </div>
             <div class="py-4 col-md-12" v-else>
-                <img :style="mediaImgTitle+' display:block; margin: 0px auto;'"  :src="items.img.triple" :alt="items.img.triple">
+                <img loading="lazy" :style="mediaImgTitle+' display:block; margin: 0px auto;'"  :src="items.img.triple" :alt="items.img.triple">
             </div>
 
             <div class="col-md-12 py-4" v-if="items.page === 'home'">
-                <img v-if="btn_double_triple === true"  :style="mediaImgTitleHome+' height: 100px; display:block; margin: 0px auto;'"  :src="items.img.triple" :alt="items.img.triple">
-                <img v-if="btn_double_triple === false" :style="mediaImgTitleHome+' height: 100px; display:block; margin: 0px auto;'"  :src="items.img.double" :alt="items.img.double">
+                <img loading="lazy" v-if="btn_double_triple === true"  :style="mediaImgTitleHome+' height: 100px; display:block; margin: 0px auto;'"  :src="items.img.triple" :alt="items.img.triple">
+                <img loading="lazy" v-if="btn_double_triple === false" :style="mediaImgTitleHome+' height: 100px; display:block; margin: 0px auto;'"  :src="items.img.double" :alt="items.img.double">
             </div>
 
             <card-component :items="items.catPromotion" v-if="items.page === 'home'" />
             <card-component :items="catTriple" v-if="items.page !== 'home'" />
 
             <div class="py-4 col-md-12" v-if="items.page !== 'home'">
-                <img :style="mediaImgTitle+' display:block; margin: 0px auto;'" :src="items.img.double" :alt="items.img.double">
+                <img loading="lazy" :style="mediaImgTitle+' display:block; margin: 0px auto;'" :src="items.img.double" :alt="items.img.double">
             </div>
 
             <card-component :items="catDouble" v-if="items.page !== 'home'" />

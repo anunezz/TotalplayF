@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>@yield('meta-title',config('app.name')." más velocidad")</title>
         <meta name="description" content="@yield('meta-content','El internet más veloz para ver el nuevo servicio de streaming que tanto esperas. Videollamadas que no se traban incluso en galaxias muy muy lejanas.')">
-        <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+        <meta name="description" content="@yield('meta-content','Telefono 52 55 2752 9436.')">
+        <meta name="keywords" content="HTML,CSS,XML,JavaScript,Vue">
         <meta name="author" content="Adrián Núñez Alanis">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 

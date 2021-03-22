@@ -46,11 +46,30 @@ import PromotionsComponent from '../fragments/Promotions';
 import WhatsappComponent from "../fragments/Whatsapp";
 import Footer2Component from "../fragments/Footer2";
 export default {
+    name: "App",
     components:{
         'form-main-component': FormMainComponent,
         'promotions-component': PromotionsComponent,
         'whatsapp-component':WhatsappComponent,
         'footer2-component':Footer2Component
+    },
+    metaInfo() {
+        return {
+        title: "Totalplay",
+        meta: [
+            {
+            vmid: "Residencial",
+            name: "Residencial",
+            content:
+                "Conecta con lo que más quieras a máxima velocidad con nuestro internet de fibra óptica"
+            }
+        ],
+        titleTemplate: '%s - Residencial',
+            htmlAttrs: {
+                lang: 'en',
+                amp: true
+            },
+        };
     },
     computed:{
         objectItems(){

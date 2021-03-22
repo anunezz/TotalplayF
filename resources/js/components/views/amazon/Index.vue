@@ -29,6 +29,24 @@ export default {
             };
         }
     },
+    metaInfo() {
+        return {
+        title: "Totalplay",
+        meta: [
+            {
+            vmid: "Amazon",
+            name: "Amazon",
+            content:
+                "Dale UNBOX al entretenimiento con Amazon Prime video que totalplay trae para ti incluido sus paquetes."
+            }
+        ],
+        titleTemplate: '%s - Totalplay Amazon Prime',
+            htmlAttrs: {
+                lang: 'en',
+                amp: true
+            },
+        };
+    },
     data() {
         return {
         }

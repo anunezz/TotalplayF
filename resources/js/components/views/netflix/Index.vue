@@ -16,6 +16,24 @@ export default {
         'whatsapp-component':WhatsappComponent,
         'footer2-component':Footer2Component
     },
+    metaInfo() {
+        return {
+        title: "Totalplay",
+        meta: [
+            {
+            vmid: "Netflix",
+            name: "Netflix",
+            content:
+                "Haz Match - Contrata un paquete con Totalplay + Netflix Incluido"
+            }
+        ],
+        titleTemplate: '%s - Totalplay Netflix',
+            htmlAttrs: {
+                lang: 'en',
+                amp: true
+            },
+        };
+    },
     computed:{
         objectItems(){
             return {

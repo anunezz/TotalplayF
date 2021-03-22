@@ -15,6 +15,7 @@ import Loading from './mixins/Loading';
 import VJsoneditor from 'v-jsoneditor';
 import VueScreen from 'vue-screen';
 //import 'animate.css';
+import VueMeta from 'vue-meta'
 import 'bootstrap';
 import "bootstrap/dist/css/bootstrap.css";
 const $ = require('jquery')
@@ -44,6 +45,12 @@ Vue.component('tinymce', tinymce);
 Vue.mixin(Loading);
 Vue.use(VJsoneditor);
 Vue.use(VueScreen);
+
+Vue.config.productionTip = false;
+Vue.use(VueMeta, {
+    // optional pluginOptions
+    refreshOnceOnNavigation: true
+});
 
 Vue.prototype.$version= '1.3';
 
