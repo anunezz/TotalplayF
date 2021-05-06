@@ -17,8 +17,8 @@ class CreateContactsTable extends Migration
             //$table->id()->autoIncrement();
             $table->id();
             $table->string('name',100)->nullable();
-            $table->unsignedBigInteger('city_id');
-            $table->unsignedBigInteger('attention_id');
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->unsignedBigInteger('attention_id')->nullable();
             $table->unsignedBigInteger('promotion_id')->nullable();
             //$table->unsignedBigInteger('user_id')->nullable();
             $table->decimal('phone', 10,0);

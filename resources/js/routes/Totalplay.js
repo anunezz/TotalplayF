@@ -1,5 +1,4 @@
 import {RouterView} from './RouterView.js';
-//import Menu from "../components/views/layouts/Menu";
 import Main from "../components/views/Main/Main";
 import netflix from '../components/views/netflix/Index';
 import amazon from '../components/views/amazon/Index';
@@ -30,12 +29,5 @@ export default {
             component: term,
             name: 'TotalplayTerm',
         },
-        // {
-        //     path: 'usuarios/editar/:id',
-        //     component: UsersEdit,
-        //     name: 'UsersEdit',
-        //     props: true
-        // },
-
     ],
 }

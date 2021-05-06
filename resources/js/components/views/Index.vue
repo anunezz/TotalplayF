@@ -1,9 +1,9 @@
 <template>
-<div class="div-index" :style="$store._modules.root.state.totalplay.Wallpaper">
+<div style="background-color: #1e1e28;">
 
-    <loading-component v-if="$store._modules.root.state.totalplay.loading" />
+    <!-- <loading-component v-if="$store._modules.root.state.totalplay.loading" /> -->
 
-    <el-dialog
+    <!-- <el-dialog
         :visible.sync="modal"
         :width="mediaWidth"
         class="ddd"
@@ -68,46 +68,27 @@
                 </el-form>
             </el-row>
         </div>
-    </el-dialog>
+    </el-dialog> -->
 
-    <div class="bg-inverse fixed-top">
-        <div class="bg-light" style="color: #6d5c96;">
-            <div class="d-flex flex-wrap py-2" :class="{'justify-content-between':(screenWidth >= 469 ),'justify-content-center': (screenWidth <= 469 )}">
-                <div class="d-flex cobertura">
-                    <div class="animate__animated animate__backInLeft animate__delay-3s">Selecciona tu ciudad: <a @click="modal = true, section = true" style="cursor:pointer;"><i class="el-icon-location-outline"></i> {{ state_name === null ? 'Ciudad de México': state_name }} </a></div>
-                </div>
-                <div class="d-flex cobertura" v-if="$store.state.user.fullname">
-                    <div class="animate__animated animate__backInRight animate__delay-3s">
-                        <el-popover
-                        title="Sesion"
-                        placement="left"
-                        width="260"
-                        v-model="visibleLogout">
-                            <p>¿Estas completamente seguro de cerrar sessión?</p>
-                            <div style="text-align: right; margin: 0">
-                                <el-button size="mini" type="text" @click="visibleLogout = false">cancelar</el-button>
-                                <el-button type="danger" size="mini" @click="visibleLogout = false,logout()">confirmar</el-button>
-                            </div>
-                            <a slot="reference" style="cursor:pointer; color: #6d5c96; text-decoration: none;"><i class="el-icon-user-solid"></i>  {{ $store.state.user.username }} </a>
-                        </el-popover>
-                    </div>
-                </div>
-                <div class="d-flex cobertura" v-else style="color: #6d5c96;">
-                    <div class="animate__animated animate__backInRight animate__delay-3s"><a @click="modalLogin" style="cursor:pointer;"><i class="el-icon-user-solid"></i> Iniciar sesion</a></div>
+    <div class="div-index nabarr bg-inverse fixed-top">
+        <!-- <div class="bg-light" style="color: #6d5c96;">
+            <div class="d-flex flex-wrap py-2 justify-content-center">
+                <div>
+                    <div>Selecciona tu ciudad: <a @click="modal = true, section = true" style="cursor:pointer;"><i class="el-icon-location-outline"></i> {{ state_name === null ? 'Ciudad de México': state_name }} </a></div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background: #212121 !important;">
+        <nav class="navbar navbar-expand-lg" style="background: #1e1e28;">
             <div class="container-fluid">
-                <a @click="linkss" class="animate__animated animate__pulse animate__infinite infinite">
+                <a @click="linkss">
                     <router-link  class="navbar-brand" to="/">
-                        <img src="/img/publico/logo.png" width="145" height="30" class="d-inline-block align-top" alt="logo-totalplay-n">
+                        <img loading="lazy" src="/img/publico/logo.png" width="145" height="30" class="d-inline-block align-top" alt="logo-totalplay-n">
                     </router-link>
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"   data-toggle="collapse" data-target="#navbarNav" >
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler text-info" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-toggle="collapse" data-target="#navbarNav" >
+                    <span class="text-info fa fa-navicon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse navbar-nav text-center text-sm-center" id="navbarNav">
@@ -130,32 +111,53 @@
             </div>
         </nav>
     </div>
+    <footer2-component  style="margin-top: 45px; z-index: 500;" />
 
-    <div style="width: 100%; height: 48px;"></div>
+    <div style="width: 100%; height: 28px;"></div>
 
     <router-view  />
+    <whatsapp-component />
 
-    <div class="bg-inverse text-white py-1 bg-dark" style="background: #212121 !important;">
+    <div class="container-fluid py-5 text-white text-center">
+        <h3 style="color: #E0E0E0;">Disfruta en Totalplay TV que incluye aplicaciones en todos sus decodificadores 4K</h3>
+        <h4 style="color: #BDBDBD;">Disfruta de tus contenidos favoritos, en cualquier momento y desde cualquier lugar.</h4>
+    </div>
+
+    <div class="py-3 container" align="center">
+        <img src="/img/Streaming-Transparente.png" class="img-fluid" width="90%" alt="Streaming-Transparente">
+    </div>
+
+    <div class="animated fadeIn fast text-center d-flex flex-column align-items-center col-xs-12 col-sm-12 col-md-5 container">
+        <div class="py-5">
+            <h4 class="text-white">Dejanos tus datos nosotros te contactamos o comunicate GRATIS.</h4>
+            <h3 class="text-info"><a href="tel:8005129092" target="_blank"> <i class="fa fa-phone phone-icon"></i> 800 5129092</a></h3>
+            <h3 class="text-white">Contratación Personalizada</h3>
+        </div>
+        <form-baner-component />
+        <br>
+        <div class="text-white">
+            <p>Linea de Atención al cliente</p>
+            <p> <a class="text-white" href="tel:8005100510" target="_blank">Clic para llamar <i class="fa fa-phone phone-icon"></i> 800 5100510</a></p>
+        </div>
+    </div>
+
+    <div class="bg-inverse text-white py-1" style="background-color: #1e1e28;">
         <div class="container text-center">
-            <el-row :gutter='20'>
-                <el-col :span='24'>
-                    <div style="padding: 4px 0px;">
-                        <p>
-                            <a @click="linkss">
-                                <router-link to="/terminos-y-condiciones" > Terminos y condiciones. </router-link>
-                            </a>
-                        </p>
-                    </div>
-                </el-col>
 
-                <el-col :span='24'>
-                    <div style='padding: 8px 0px; width:100%; display:flex; justify-content: center;'>
-                        <div class="animate__animated animate__pulse animate__infinite infinite">
-                            <img src="/img/publico/logo.png" width="188" height="37" class="d-inline-block align-top" alt="">
-                        </div>
+            <div class="row d-flex d-colum atign-items-center">
+                <div class="col-md-12">
+                    <p>
+                        <a @click="linkss">
+                            <router-link to="/terminos-y-condiciones" > Terminos y condiciones. </router-link>
+                        </a>
+                    </p>
+                </div>
+                <div class=" col-md-12 py-3 text-center d-flex justify-content-center">
+                    <div>
+                        <img loading="lazy" src="/img/publico/logo.png" width="188" height="37" class="img-fluid" alt="logo.png">
                     </div>
-                </el-col>
-            </el-row>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -163,13 +165,15 @@
 </template>
 
 <script>
-import { Globals } from "../../mixins/Globals";
-import loadingComponent from "./fragments/Loading";
+import WhatsappComponent from "../../components/views/fragments/Whatsapp";
+import Footer2Component from "../../components//views/fragments/Footer2";
+import FormMain from '../../components/views/fragments/FormBanerRight';
 
 export default {
-mixins:[Globals],
 components:{
-    'loading-component': loadingComponent
+    'whatsapp-component':WhatsappComponent,
+    'footer2-component':Footer2Component,
+    'form-baner-component': FormMain
 },
 data() {
     return {
@@ -219,7 +223,7 @@ computed: {
     }
 },
 created() {
-        this.getCats();
+        //this.getCats();
         let dialog = localStorage.getItem("dialog");
         //localStorage.clear();
 
@@ -404,16 +408,13 @@ methods: {
 </script>
 
 
-<style scoped>
-.cobertura{
-    text-align: right;
-    align-items: flex-end;
+<style>
+.contentMain:hover .imgMain {
+    -webkit-transform:scale(1.05);
+    transform:scale(1.05);
+    transition:all .5s ease-in-out;
 }
-
-.logo{
-    animation: pulse; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: infiniti; /* don't forget to set a duration! */
-}
+.contentMain {overflow:hidden;}
 
 .nav-link:hover{
     animation: heartBeat;
@@ -424,40 +425,62 @@ a:hover{
     cursor:pointer;
 }
 
-.state-content{
-    width: 33%;
-    background-color: #343a40;
-    box-sizing: border-box;
-    border: solid #343a40 1px;
-    cursor: pointer;
-}
-.state-content:hover{
-    width: 33%;
-    background-color: #ffffff;
-    box-sizing: border-box;
-    border: solid #343a40 1px;
-    color: black;
-
+.div-index .footer2{
+    position: sticky;
+    top: 0px;
 }
 
-html nav.navbar.navbar-custom {
-    padding: 0;
-    margin: 0;
+.imgTotal{
+    width: 240px;
+    height: 50px;
+}
+.imgPack{
+    width: 180px;
+    height: 50px;
 }
 
-.colorr{
-    background-color: blue;
+.imgBannerPrincipal{
+    height: 480px;
+    background-image: url('/img/BannerPrincipal/banner-principal.png');
+    background-size: 45% 65%;
+    background-position: 15% 45%;
+    background-repeat: no-repeat;
 }
 
-.navbar-dark .navbar-nav .nav-item{
-    margin: 0px 10px !important;
+.imgBanish{
+    display: block;
 }
 
-@media screen and (min-width: 0px) and (max-width: 991px) {
-    .cobertura{
-        text-align: center;
-        align-items: center;
+.imgVisiblebotton{
+    display: none;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1054px) {
+    .imgTotal{
+        width: 200px;
+        height: 35px;
     }
+    .imgPack{
+        width: 130px;
+        height: 35px;
+    }
+
+    .imgBannerPrincipal{
+        height: 240px;
+        background-image: url('/img/BannerPrincipal/banner-principal.png');
+        background-size: 80% 60%;
+        background-position: 10% 60%;
+        background-repeat: no-repeat;
+    }
+
+    .imgBanish{
+        display: none;
+    }
+
+    .imgVisiblebotton{
+        display: block;
+    }
+
 }
 
 </style>

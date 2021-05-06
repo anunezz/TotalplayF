@@ -1,6 +1,6 @@
 <template>
-<div style="margin-top: 70px;">
-    <div class="container">
+<div>
+    <div class="container animated fadeIn fast text-white py-2">
         <div class="row">
             <div class="col-md-12">
             <h4>Aviso legal</h4>
@@ -144,16 +144,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
             <!-- <el-tabs v-model="activeName">
                 <el-tab-pane label="Términos y Condiciones Naional" name="first" class="animated fadeIn">
                     <national-component ></national-component>
@@ -164,22 +154,35 @@
             </el-tabs> -->
         </div>
     </div>
-    <whatsapp-component />
-    <footer2-component />
+
 </div>
 </template>
 
 <script>
 import national from './National';
 import frontier from './Frontier';
-import WhatsappComponent from "../fragments/Whatsapp";
-import Footer2Component from "../fragments/Footer2";
+
 export default {
     components:{
         'national-component': national,
-        'frontier-component': frontier,
-        'whatsapp-component':WhatsappComponent,
-        'footer2-component':Footer2Component
+        'frontier-component': frontier
+    },
+    metaInfo() {
+        return {
+        title: "Totalplay",
+        meta: [
+            {
+            vmid: "Terminos",
+            name: "Terminos",
+            content: "Oferta especial - Más Megas , descuento de por vida con paquete DIVIERTETE 40 Megas, DIVIERTETE + 100 Megas... hasta 500 Megas."
+            }
+        ],
+        titleTemplate: '%s | Terminos y condiciones',
+            htmlAttrs: {
+                lang: 'es',
+                amp: true
+            },
+        };
     },
     data(){
         return {
@@ -187,9 +190,7 @@ export default {
         }
     },
     mounted() {
-        setTimeout(() => {
-            this.$store._modules.root.state.totalplay.loading = false;
-        }, 1000);
+        $('body, html').animate({scrollTop: '0px'}, 1100);
     },
 }
 </script>

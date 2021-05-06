@@ -31,22 +31,21 @@ use App\Http\Controllers\Controller;
 class TotalplayController extends Controller
 {
     private $phone = 'regex:/^[0-9]{10}$/im';
-    private $zip_code = 'regex:/^[0-9]{5}$/im';
     private $alphanumeric = 'regex:/^[A-Za-z0-9\.,\-\"\()ÑñäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ\s]+$/im';
 
     public function setContact(Request $request){
         try{
             if ($request->wantsJson()){
 
-                $request->validate([
-                    'name' => 'nullable|string|max:100|'.$this->alphanumeric,
-                    'city_id' => 'required|numeric',
-                    'promotion_id' => 'nullable|numeric',
-                    'phone' => 'required|max:10|'.$this->phone,
-                    'promotion_code' => 'nullable|string|max:100'.$this->alphanumeric,
-                ]);
+                    $request->validate([
+                        'name' => 'nullable|string|max:100|'.$this->alphanumeric,
+                        'city_id' => 'nullable|numeric',
+                        'promotion_id' => 'nullable|numeric',
+                        'phone' => 'required|string|max:10|'.$this->phone,
+                        'promotion_code' => 'nullable|string|max:100'.$this->alphanumeric,
+                    ]);
 
-                $data = $request->all();
+                    $data = $request->all();
 
                     $LevelsOfAttention = LevelsOfAttention::create([
                         'attention_id' => 1

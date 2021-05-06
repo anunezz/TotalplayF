@@ -1,18 +1,22 @@
 <template>
 <div>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <a href="tel:8005129092"
+        class="cellphone"
+        data-toggle="tooltip" data-placement="left"
+        title="Llamanos y conseguiras más promociones"
+        target="_blank"> <i class="fa fa-phone phone-icon"></i></a>
 
-    <el-tooltip class="item" effect="dark" content="Llamanos y consiguiras mas promociones" placement="left-start">
-        <a href="tel:+525527529436" class="cellphone" target="_blank"> <i class="fa fa-phone phone-icon"></i></a>
-    </el-tooltip>
+    <a href="https://wa.me/525527529436?text=Contactanos%20para%20más%20promociones%20Totalplay"
+        class="whatsapp"
+        data-toggle="tooltip" data-placement="left"
+        title="Llamanos y conseguiras más promociones"
+        target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 
-    <el-tooltip class="item" effect="dark" content="Contacta para más promociones" placement="left-start">
-        <a href="https://wa.me/525527529436?text=Contactanos%20para%20más%20promociones%20Totalplay" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
-    </el-tooltip>
-    <el-tooltip class="item" effect="dark" content="Llamanos y consiguiras mas promociones" placement="left-start">
-        <a href="https://t.me/Totalplaycontratacionpersonaliza" class="telegram" target="_blank"> <i class="fa fa-telegram telegram-icon"></i></a>
-    </el-tooltip>
-
+    <a href="https://t.me/Totalplaycontratacionpersonaliza"
+        class="telegram"
+        data-toggle="tooltip" data-placement="left"
+        title="Llamanos y conseguiras más promociones"
+        target="_blank"> <i class="fa fa-telegram telegram-icon"></i></a>
 
 </div>
 </template>
