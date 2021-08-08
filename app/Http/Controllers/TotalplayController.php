@@ -33,6 +33,17 @@ class TotalplayController extends Controller
     private $phone = 'regex:/^[0-9]{10}$/im';
     private $alphanumeric = 'regex:/^[A-Za-z0-9\.,\-\"\()ÑñäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ\s]+$/im';
 
+    public function index(){
+        try{
+            return view("app");
+        } catch (Exception $e) {
+            return response()->json([
+            'success' => false,
+            'message' => 'Error al mostrar información ' . $e->getMessage()
+            ], 300);
+        }
+    }
+
     public function setContact(Request $request){
         try{
             if ($request->wantsJson()){
