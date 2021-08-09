@@ -94,16 +94,19 @@
                 <div class="collapse navbar-collapse navbar-nav text-center text-sm-center" id="navbarNav">
                     <ul class="nav navbar-nav animatedd fastt fadeInn" :class="{ 'mc-auto': (screenWidth <= 991 ),'ml-auto': (screenWidth >= 992 )}">
                         <li @click="linkss" class="nav-item">
-                            <router-link to="/" class="nav-link" aria-current="page"> <span id="inicio"> Residencial </span> </router-link>
+                            <router-link to="/" class="nav-link" aria-current="page"> <span id="nexmun"> Inicio </span> </router-link>
                         </li>
                         <li @click="linkss" class="nav-item">
-                            <router-link to="/netflix" exact class="nav-link" aria-current="page"> <span id="netflix"> Totalplay + Netflix </span> </router-link>
+                            <router-link to="/residencial" class="nav-link"> <span id="residencial"> Totalplay + Residencial </span> </router-link>
                         </li>
                         <li @click="linkss" class="nav-item">
-                            <router-link to="/amazon" exact class="nav-link" aria-current="page"> <span id="amazon"> Totalplay + Amazon Prime </span> </router-link>
+                            <router-link to="/netflix" exact class="nav-link"> <span id="netflix"> Totalplay + Netflix </span> </router-link>
+                        </li>
+                        <li @click="linkss" class="nav-item">
+                            <router-link to="/amazon" exact class="nav-link"> <span id="amazon"> Totalplay + Amazon Prime </span> </router-link>
                         </li>
                         <li class="nav-item" v-if="$store.state.user.fullname">
-                            <router-link @click="linkss" to="/login" exact class="nav-link" aria-current="page"> <span id="dashboard"> Acceso </span> </router-link>
+                            <router-link @click="linkss" to="/login" exact class="nav-link"> <span id="dashboard"> Acceso </span> </router-link>
                         </li>
                     </ul>
                 </div>
@@ -241,8 +244,6 @@ created() {
 },
 mounted(){
     this.linkss();
-    $(".ddd > div").css({"background-color":"#343a40","color":"white"});
-    $(".el-dialog__title").css({"color":"white"});
 },
 methods: {
     modalLogin(){
@@ -364,40 +365,46 @@ methods: {
 
     linkss(){
         let aux = this.$router.history.current.path;
+            document.getElementById("nexmun").style.color = "#fff";
+            document.getElementById("residencial").style.color = "#fff";
+            document.getElementById("netflix").style.color = "#fff";
+            document.getElementById("amazon").style.color = "#fff";
+
         switch (aux) {
+            case '/':
+            {
+                document.getElementById("nexmun").style.color = "green";
+                break;
+            }
+            case '/residencial':
+            {
+                document.getElementById("residencial").style.color = "#FFEB3B";
+                break;
+            }
             case '/netflix':
             {
                 document.getElementById("netflix").style.color = "#B71C1C";
-                document.getElementById("inicio").style.color = "#fff";
-                document.getElementById("amazon").style.color = "#fff";
                 break;
             }
             case '/amazon':
             {
                 document.getElementById("amazon").style.color = "#81D4FA";
-                document.getElementById("inicio").style.color = "#fff";
-                document.getElementById("netflix").style.color = "#fff";
-                break;
-            }
-            case '/':
-            {
-                document.getElementById("amazon").style.color = "#fff";
-                document.getElementById("inicio").style.color = "#FFEB3B";
-                document.getElementById("netflix").style.color = "#fff";
                 break;
             }
             case '/terminos-y-condiciones':
             {
-                document.getElementById("amazon").style.color = "#fff";
-                document.getElementById("inicio").style.color = "#fff";
+                document.getElementById("nexmun").style.color = "#fff";
+                document.getElementById("residencial").style.color = "#fff";
                 document.getElementById("netflix").style.color = "#fff";
+                document.getElementById("amazon").style.color = "#fff";
                 break;
             }
             default:
             {
-                document.getElementById("amazon").style.color = "#fff";
-                document.getElementById("inicio").style.color = "#FFEB3B";
+                document.getElementById("nexmun").style.color = "#fff";
+                document.getElementById("residencial").style.color = "#fff";
                 document.getElementById("netflix").style.color = "#fff";
+                document.getElementById("amazon").style.color = "#fff";
                 break;
             }
         }

@@ -1,5 +1,6 @@
 import {RouterView} from './RouterView.js';
-import Main from "../components/views/Main/Main";
+import nexmun from "../components/views/nexmun/Index";
+import residencial from "../components/views/residencial/Index";
 import netflix from '../components/views/netflix/Index';
 import amazon from '../components/views/amazon/Index';
 import term from "../components/views/terms/Index";
@@ -10,24 +11,28 @@ export default {
     children: [
         {
             path: '',
-            component: Main,
-            name: 'TotalplayMain',
+            component: nexmun,
+            name: 'NextMunComponent',
+        },
+        {
+            path: '/residencial',
+            component: residencial,
+            name: 'ResidencialComponent',
         },
         {
             path: '/netflix',
             component: netflix,
-            name: 'PublicNetflix',
+            name: 'NetflixComponent',
         },
         {
             path: '/amazon',
             component: amazon,
-            name: 'PublicAmazon',
+            name: 'AmazonComponent',
         },
-
         {
             path: '/terminos-y-condiciones',
             component: term,
-            name: 'TotalplayTerm',
+            name: 'TotalplayTermComponent',
         },
     ],
 }

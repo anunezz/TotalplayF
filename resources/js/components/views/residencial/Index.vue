@@ -34,8 +34,8 @@
         <h1 class="text-white h3-sm" v-text="(packBtn === 1)?'Totalplay TV + Internet':'Totalplay + Internet'"></h1>
     </div>
 
-    <card-internettv-component :typePack="true" :packTotal="packInternetTV" />
-    <!-- <cards-component :typePack="true" :packTotal="packTotal" /> -->
+    <!-- <card-internettv-component :typePack="true" :packTotal="packInternetTV" /> -->
+    <cards-component :typePack="true" :packTotal="packTotal" />
 
 </div>
 </template>
@@ -204,6 +204,7 @@ export default {
         getTypeCard(val){
             this.packBtn = val;
             this.packTotal = ( val === 1 )? this.packInternetTV : this.packInternet;
+            console.log("Estas aqui: ",this.packTotal );
         }
     }
 }
