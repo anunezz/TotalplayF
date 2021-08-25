@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Diviértete 40 Megas",
+        "colorText":"text-warning",
+        "title": "Diviértete <br><span style='font-size: 45px;'>40 MEGAS</span>",
+        "color":"bg-warning",
+        "colorBtn":"btn-warning",
+        "colorHex": "#FFEA00",
+        "description": "Experimenta la velocidad como nadie.",
+        "cost":"Descuento de por vida",
+        "descuento": null,
+        "costDescription":"-$ 20 a partir del 6° mes<br><br>",
+        "prontopago": "Pronto Pago $ 529"
+    },
+    {
+        "name": "Diviértete + 100 MEGAS",
+        "colorText":"text-info",
+        "title": "Diviértete + <br><span style='font-size: 45px;'>100 MEGAS</span>",
+        "color":"bg-info",
+        "colorBtn":"btn-info",
+        "colorHex": "#F04E98",
+        "description": "Experimenta la velocidad como nadie.",
+        "cost":"Descuento de por vida",
+        "descuento": null,
+        "costDescription":"- $ 30 a partir del 6° mes<br><br>",
+        "prontopago": "Pronto Pago $ 629"
+    },
+    {
+        "name": "Emociónate 200 MEGAS",
+        "colorText":"text-primary",
+        "title": "Emociónate <br><span style='font-size: 45px;'>200 MEGAS</span>",
+        "color":"bg-primary",
+        "colorBtn":"btn-primary",
+        "colorHex": "#40C4FF",
+        "description": "Experimenta la velocidad como nadie.",
+        "cost":"Descuento de por vida",
+        "descuento": null,
+        "costDescription":"- $ 50 a partir del 6° mes<br><br>",
+        "prontopago": "Pronto Pago $ 999"
+    },
+    {
+        "name": "Sorpréndete 500 MEGAS",
+        "colorText":"text-secondary",
+        "title": "Sorpréndete <br><span style='font-size: 45px;'>500 MEGAS</span>",
+        "color":"bg-secundary",
+        "colorBtn":"btn-secondary",
+        "colorHex": "#AE80FC",
+        "description": "Experimenta la velocidad como nadie.",
+        "cost":"Descuento de por vida",
+        "descuento": null,
+        "costDescription":"- $ 80 a partir del 6° mes<br><br>",
+        "prontopago": "Pronto Pago $ 1,579"
+    }
+]
