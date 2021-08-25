@@ -2,6 +2,9 @@
 <div class="py-1 text-white">
     <div class="container">
         <div class="row mb-5">
+            <div class="col-md-12" style="font-size: 55px; font-style: italic;">
+                Internet contratación personalizada para tus necesidades
+            </div>
             <div class="col-md-12">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
