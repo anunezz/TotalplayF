@@ -1,23 +1,37 @@
 <template>
-<div class="row no-gutters footer2 d-flex justify-content-center flex-wrap text-center" style="background-color: #1e1e28; width: 100%; height: 100px;">
-    <div class="col-md-6 color-text tel" v-if="mediaWidthCarousel">
-        <a href="tel:8005129092"> CONTRATACIÓN PERSONALIZADA LLAMANDO <br> <span class="text-info"><i class="fa fa-phone phone-icon"></i> 800 5129092</span></a>
-    </div>
-    <div :class="(mediaWidthCol?'col-md-12':'col-md-5')">
-        <div class="row pt-3 px-3">
-            <div class="col-12">
-                <form class="form-row" @submit.prevent="callPhone">
-                    <div class="input-group input-group-lg">
-                        <input :class="{'is-invalid':inputPhoneValid,'form-control':true}"
-                        autocomplete="off" :disabled="disabledField" v-on:keyup.13="callPhone" v-model="dataForm.phone" placeholder="Deja tu número">
-                        <div class="input-group-prepend">
-                            <button :disabled="disabledField" @click="callPhone" class="btn btn-primary text-white">Enviar</button>
-                        </div>
-                    </div>
-                </form>
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-white" style="background-color: #1e1e28;">
+            <div class="modal-header" v-bind:class="pack.color">
+                <h5 class="modal-title" id="staticBackdropLabel" v-text="pack.name"></h5>
+                <button type="button" @click="closeModal" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div :class="{'text-danger':inputPhoneValid,'text-success':inputPhoneValidSuccess,'col-12 animated fadeIn fast': true,}"
-            v-if="textForm" v-text="textForm"></div>
+            <div class="modal-body text-center">
+                <h3> <strong>Llama GRATIS al <br>
+                    <a href="tel:8005129092"
+                    target="_blank">800 5129092</a> para más información</strong> </h3>
+                    <p>o deja tu número y nosotros te llamamos. <br>
+                        <i class="fa fa-phone phone-icon"></i> Ingresa tu número de teléfono.
+                    </p>
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <form class="form-row" @submit.prevent="callPhone">
+                            <div class="input-group input-group-lg">
+                                <input :class="{'is-invalid':inputPhoneValid,'form-control':true}"
+                                autocomplete="off" :disabled="disabledField" v-on:keyup.13="callPhone" v-model="dataForm.phone" placeholder="Deja tu número">
+                                <div class="input-group-prepend">
+                                    <button :disabled="disabledField" @click="callPhone" class="btn text-white" :class="pack.colorBtn">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div :class="{'text-danger':inputPhoneValid,'text-success':inputPhoneValidSuccess,'col-12 animated fadeIn fast': true,}"
+                    v-if="textForm" v-text="textForm"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -25,7 +39,10 @@
 
 <script>
 export default {
-    data() {
+    props: {
+        pack:Object
+    },
+    data(){
         return {
             dataForm:{
                 name: null,
@@ -41,24 +58,25 @@ export default {
         }
     },
     watch : {
-        'dataForm.phone':function(val) {
+        'dataForm.phone':function(val){
             if(val !== null){
+                let exp = new RegExp(/(\d)/, 'igm');
                 if (val.length > 10) {
                     val = val.slice(0,10);
                 }
+
+                let mat = val.match(exp);
+                val = ( mat)? mat.join("") : null;
+
             }
             return this.dataForm.phone = val;
         }
     },
-    computed:{
-        mediaWidthCarousel() {
-            return this.$screen.width > 1038? true: false;
-        },
-        mediaWidthCol() {
-            return this.$screen.width > 801? false: true;
-        },
-    },
     methods: {
+        closeModal(){
+            this.clearForm();
+            $('.modal').modal('hide');
+        },
         clearForm(){
             this.dataForm = {
                 name: null,
@@ -94,6 +112,7 @@ export default {
                                 this.textForm = "Tus datos han sido registrados exitosamente.";
                                 setTimeout(() => {
                                     this.clearForm();
+                                    $('.modal').modal('hide');
                                 }, 2000);
                             }
                         }).catch(error => {
@@ -108,31 +127,10 @@ export default {
                 this.textForm = 'Este campo es requerido';
             }
         }
-    }
+    },
 }
 </script>
 
 <style scoped>
-.tel a{
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-    font-weight: 500;
-    cursor:pointer;
-}
-.color-text{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-@media screen and (min-width: 0px) and (max-width: 1054px) {
-    .color-text{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 20px;
-        font-weight: 900;
-    }
-}
-</style>>
 
+</style>

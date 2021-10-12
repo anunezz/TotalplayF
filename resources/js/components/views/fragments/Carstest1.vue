@@ -20,11 +20,9 @@
             <img loading="lazy" class="img-fluid" src="/img/iconos/tv.svg" alt="tv">
         </div>
 
-        <div style="width: 100%; height: 50px; font-size: 19px;">
+        <div style="width: 100%; height: 70px; font-size: 19px;">
             <p class="card-text" v-html="pack.description"></p>
         </div>
-
-        <hr class="text-white" style="color: #666; background-color: #FFFFFF;">
 
     </div>
 
@@ -34,10 +32,13 @@
         <span v-html="pack.costDescription"></span>
     </div>
 
-    <div class="card-body" :class="pack.colorText" style="width: 100%; height: 130px;">
+    <div class="card-body" :class="pack.colorText" :style="'width: 100%; height:'+(pack.img)?'230px;':'130px;'">
             <span :style="'font-weight: 700; font-size: 25px; color: '+pack.colorHex"> + Descuento de por vida</span>
             <br>
             <span v-if="pack.descuento" class="text-white" v-text="pack.descuento"></span>
+            <div style="margin: 0px auto; width: 50%; align-items: center;" v-if="pack.img">
+                <img class="img-fluid" style="height: 90px; width: 150px;" loading="lazy" :src="pack.img" :alt="pack.img">
+            </div>
         <br>
         <h4 class="text-white" v-text="pack.prontopago"></h4>
     </div>
@@ -47,7 +48,7 @@
         type="button"
         data-toggle="modal"
         data-target="#staticBackdrop"
-        @click="getInfoModal(pack)"
+        @click="openModal(pack)"
         style="width: 100%;"
         class="btn btn-lg d-block text-white btn-info">  Contrata ahora</button>
     </div>
@@ -57,75 +58,13 @@
 <script>
 export default {
     props: {
-        pack: Object,
-    },
-    watch : {
-        'dataForm.phone':function(val) {
-            if(val !== null){
-                if (val.length > 10) {
-                    val = val.slice(0,10);
-                }
-            }
-            return this.dataForm.phone = val;
-        }
-    },
-    data() {
-        return {
-            dataForm:{
-                name: null,
-                city_id: null,
-                promotion_id: null,
-                phone: null,
-                promotion_code: null
-            },
-            textForm:null,
-            getInfPack:{},
-        }
+        pack: {
+            type: Object,
+        },
     },
     methods:{
-        getInfoModal(pack){
-            $("#idPhone").removeClass('is-invalid');
-            this.textForm = null;
-            this.dataForm.phone = null;
-            this.getInfPack = pack;
-        },
-        closeModal(){
-            $("#idPhone").removeClass('is-invalid');
-            $('.modal').modal('hide');
-            this.textForm = null;
-        },
-        callPhone(){
-            if(this.dataForm.phone){
-                let exp = /^[0-9]{10}$/;
-                if( exp.test(this.dataForm.phone) ){
-                    $("#idPhone").removeClass('is-invalid');
-                    this.textForm = null;
-                        axios.post('/api/setContact',{
-                            name : this.dataForm.name,
-                            city_id :  9,
-                            promotion_id: this.dataForm.promotion_id,
-                            phone : this.dataForm.phone,
-                            promotion_code : this.dataForm.promotion_code
-                        },{headers:{
-                                    'X-Requested-With': 'XMLHttpRequest',
-                                    'Accept': 'application/json',
-                                    'Accept-C': window.acceptC
-                                }}).then(response => {
-                            if(response.data.success){
-                                this.closeModal();
-                                console.log("Los datos fueron enviados exitosamente....",response);
-                            }
-                        }).catch(error => {
-                            console.error(error);
-                        });
-                }else{
-                    $("#idPhone").addClass('is-invalid');
-                    this.textForm = 'Este campo debe contener 10 números.';
-                }
-            }else{
-                $("#idPhone").addClass('is-invalid');
-                this.textForm = 'Este campo es requerido';
-            }
+        openModal(pack){
+            this.$emit("openModal",pack);
         }
     }
 }
