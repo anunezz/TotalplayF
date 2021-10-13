@@ -2,24 +2,13 @@ import Vue from "vue"
 import Vuex from 'vuex'
 import VueRouter from "vue-router"
 import axios from 'axios'
-//import moment from 'moment';
-//mport momentTz from 'moment-timezone';
-//import ElementUI from 'element-ui';
-//import 'element-ui/lib/theme-chalk/index.css';
-//import locale from 'element-ui/lib/locale/lang/es';
-//import VueProgressBar from 'vue-progressbar';
-//import IdleVue from 'idle-vue'
-//import tinymce from 'vue-tinymce-editor'
-//import {getIPs, getIPv4, getIPv6} from 'webrtc-ips';
-//import Loading from './mixins/Loading';
-//import VJsoneditor from 'v-jsoneditor';
 import VueScreen from 'vue-screen';
-//import 'animate.css';
 import VueMeta from 'vue-meta'
 import 'bootstrap';
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/style.css";
 const $ = require('jquery')
 window.$ = $;
+
 //import '../css/plantilla.css';
 
 //require('moment/locale/es');
@@ -33,17 +22,9 @@ window.CryptoJS = require("crypto-js");
 const hash = CryptoJS.MD5("9TMmz72hQM4ZFWKW").toString();
 
 
-const eventsHub = new Vue();
-
-//moment.suppressDeprecationWarnings = false;
-
 Vue.use( Vuex );
 Vue.use( VueRouter );
-//Vue.use( ElementUI );
-//Vue.use( require('vue-moment'), { moment, momentTz });
-//Vue.component('tinymce', tinymce);
-//Vue.mixin(Loading);
-//Vue.use(VJsoneditor);
+
 Vue.use(VueScreen);
 
 Vue.config.productionTip = false;
@@ -54,22 +35,9 @@ Vue.use(VueMeta, {
 
 Vue.prototype.$version= '1.3';
 
-// Vue.use(IdleVue, {
-//     eventEmitter: eventsHub,
-//     idleTime: 60/*Minutes*/ * 60/*Seconds*/ * 1000/*Miliseconds*/
-// });
-
-// Vue.use(VueProgressBar, {
-//     color: '#2cbb44',
-//     failedColor: '#fbbd08',
-//     height: '10px'
-// });
-
 window.Vue = Vue;
 window.axios = axios;
-//window._ = require('lodash');
 
-// For common config
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 window.axios.defaults.headers.common = {
