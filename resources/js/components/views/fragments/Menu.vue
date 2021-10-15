@@ -1,5 +1,5 @@
 <template>
-<div class="div-index nabarr bg-inverse fixed-top">
+<div class="div-index bg-inverse fixed-top">
     <nav class="navbar navbar-expand-lg mynav" style="background: #1e1e28;">
         <div class="container-fluid">
 
@@ -17,6 +17,15 @@
                                 <span id="nexmun"> Nexmun </span>
                             </a>
                         </router-link>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="netflix"> Totalplay + Netflix </span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                        </div>
                     </li>
                     <li @click="linkss" class="nav-item">
                         <router-link to="/residencial">
@@ -48,115 +57,33 @@
 </template>
 
 <script>
+import { RouterPush } from '../Mixins/RouterPush.js';
 export default {
-computed: {
-//https://github.com/reegodev/vue-screen
-    mediaWidth() {
-        let width = '';
-        if( this.$screen.width < 950 ){
-            if (this.section === true) {
-                width = '95%';
-            }else{
-                width = '70%';
-            }
-        }else{
-            if (this.section === true) {
-                width = '65%';
-            }else{
-                width = '25%';
-            }
-        }
-        return width;
-    },
-    screenWidth() {
-        // let aux = 'mr-auto';
-        // if(this.$screen.width >= 991 ){
-        //     let aux = 'mc-auto';
-        // }
-        let aux = this.$screen.width;
-
-        return aux;
-    },
-    titleModal(){
-        return this.section ? "Selecciona la cobertura de tu ciudad" : "Iniciar sesión";
-    }
-},
-mounted(){
-    this.linkss();
-},
-methods: {
-    linkss(){
-        let aux = this.$router.history.current.path;
-            document.getElementById("nexmun").style.color = "#fff";
-            document.getElementById("residencial").style.color = "#fff";
-            document.getElementById("netflix").style.color = "#fff";
-            document.getElementById("amazon").style.color = "#fff";
-        console.log("Path: ",aux);
-        switch (aux) {
-            case '/':
-            {
-                document.getElementById("nexmun").style.color = "#6f42c1";
-                break;
-            }
-            case '/residencial':
-            {
-                document.getElementById("residencial").style.color = "#FFEB3B";
-                break;
-            }
-            case '/netflix':
-            {
-                document.getElementById("netflix").style.color = "#B71C1C";
-                break;
-            }
-            case '/amazon':
-            {
-                document.getElementById("amazon").style.color = "#81D4FA";
-                break;
-            }
-            case '/terminos-y-condiciones':
-            {
-                document.getElementById("nexmun").style.color = "#fff";
-                document.getElementById("residencial").style.color = "#fff";
-                document.getElementById("netflix").style.color = "#fff";
-                document.getElementById("amazon").style.color = "#fff";
-                break;
-            }
-            default:
-            {
-                document.getElementById("nexmun").style.color = "#fff";
-                document.getElementById("residencial").style.color = "#fff";
-                document.getElementById("netflix").style.color = "#fff";
-                document.getElementById("amazon").style.color = "#fff";
-                break;
-            }
-        }
-    },
-},
+mixins: [RouterPush]
 }
 </script>
 
-<style>
-.mynav a {
-    margin-right: 20px;
-    outline:none;
-    /* color: green !important; */
-    border-bottom: 3px solid transparent;
+<style scoped>
+.nav-item{
+    margin-left: 20px;
 }
 
-.mynav a{
+.mynav a {
+    outline:none;
+    border-bottom: 4px solid transparent;
     text-decoration: none;
     font-size: 19px;
     font-weight: 700;
-    margin-left: 17px;
 }
 
-.mynav a:hover {
+.nav-link:hover {
     outline:none;
     text-decoration: none;
     border-bottom: 2px solid #ffc107;
+     transition: 0.8s;
 }
 
-.active a {
+.active > a.nav-link {
     border-bottom: 2px solid #ffc107;
 }
 </style>

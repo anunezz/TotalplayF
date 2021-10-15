@@ -113,6 +113,11 @@ export default {
 </script>
 
 <style scoped>
+.footer2{
+    margin-top: 119px;
+    z-index: 500;
+}
+
 .tel a{
     text-decoration: none;
     color: white;

@@ -10,7 +10,7 @@ export default {
     component: RouterView,
     children: [
         {
-            path: '',
+            path: '/',
             component: nexmun,
             name: 'NextMunComponent',
         },
@@ -25,7 +25,7 @@ export default {
             name: 'NetflixComponent',
         },
         {
-            path: '/amazon',
+            path: '/amazon-prime',
             component: amazon,
             name: 'AmazonComponent',
         },

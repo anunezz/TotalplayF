@@ -1,0 +1,37 @@
+[
+    {
+        "id": "nexmun",
+        "color": "#6f42c1",
+        "name": "Nexmun",
+        "ruta": "/",
+        "isDropdown": false
+    },
+    {
+        "id": "residencial",
+        "color": "#FFEB3B",
+        "name": "Totalplay + Residencial",
+        "ruta": "/residencial",
+        "isDropdown": true
+    },
+    {
+        "id": "netflix",
+        "color": "#B71C1C",
+        "name": "Totalplay + Netflix",
+        "ruta": "/netflix",
+        "isDropdown": true
+    },
+    {
+        "id": "amazon-prime",
+        "color": "#81D4FA",
+        "name": "",
+        "ruta": "/amazon-prime",
+        "isDropdown": true
+    },
+    {
+        "id": "terminos-y-condiciones",
+        "color": "#6f42c1",
+        "name": "Terminos y condiciones",
+        "ruta": "/terminos-y-condiciones",
+        "isDropdown": false
+    }
+]
