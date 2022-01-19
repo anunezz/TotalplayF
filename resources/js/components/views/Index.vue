@@ -2,9 +2,9 @@
 <div style="background-color: #1e1e28;">
 
     <menu-component />
-    <footer2-component />
+    <!-- <footer2-component /> -->
 
-    <div style="width: 100%; height: 28px;"></div>
+    <div style="width: 100%; height: 40px;"></div>
 
     <router-view  />
     <whatsapp-component />

@@ -49,12 +49,15 @@
 </template>
 
 <script>
+import { RouterPush } from '../Mixins/RouterPush.js';
+import { mapState } from "vuex";
 import CradTest1 from '../fragments/Carstest1';
 import NetflixJson from '../packs/netflix/packNetflix';
 import packInternetNetflixJson from '../packs/netflix/packInternetNetflix';
 import modalPack from '../fragments/ModalCard';
 
 export default {
+    mixins: [RouterPush],
     components:{
         'card-test-component': CradTest1,
         'modal-card-component':  modalPack
@@ -76,6 +79,7 @@ export default {
     },
     mounted(){
         $('body, html').animate({scrollTop: '0px'}, 1100);
+        this.currentUrl();
     },
     data() {
         return {
@@ -83,6 +87,9 @@ export default {
             packNetflix: NetflixJson,
             packInternetNetflix: packInternetNetflixJson
         }
+    },
+    computed:{
+        ...mapState('menu',['activeMenu']),
     },
     methods:{
         openModal(pack){

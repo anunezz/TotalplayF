@@ -15,9 +15,10 @@ export default {
             name: 'NextMunComponent',
         },
         {
-            path: '/residencial',
+            path: '/residencial/:id',
             component: residencial,
             name: 'ResidencialComponent',
+            props: true
         },
         {
             path: '/netflix',

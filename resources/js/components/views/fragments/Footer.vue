@@ -29,7 +29,7 @@
             <div class="row d-flex d-colum atign-items-center">
                 <div class="col-md-12">
                     <p>
-                        <a @click="linkss">
+                        <a @click="currentUrl(urlPath)">
                             <router-link to="/terminos-y-condiciones" > Terminos y condiciones. </router-link>
                         </a>
                     </p>
@@ -48,11 +48,18 @@
 
 <script>
 import { RouterPush } from '../Mixins/RouterPush.js';
-import FormBanerRight from '../fragments/FormBanerRight'
+import FormBanerRight from '../fragments/FormBanerRight';
+import { mapState } from "vuex";
 export default {
 mixins: [RouterPush],
 components:{
     "form-baner-component": FormBanerRight
+},
+computed:{
+    ...mapState('menu',['activeMenu']),
+    urlPath(){
+        return this.$router.history.current.path;
+    }
 }
 }
 </script>

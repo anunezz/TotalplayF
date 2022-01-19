@@ -110,19 +110,21 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import { RouterPush } from '../Mixins/RouterPush';
 export default {
+    mixins:[ RouterPush ],
 data(){
     return {
     }
 },
 mounted(){
     $('body, html').animate({scrollTop: '0px'}, 1100);
+    console.log("ruta nexnum: ",this.$router.history.current.path);
+    this.currentUrl(this.$router.history.current.path);
+},
+computed:{
+    ...mapState('menu',['activeMenu']),
 },
 }
 </script>
-
-<style  scoped>
-
-
-
-</style>

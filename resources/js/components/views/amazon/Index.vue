@@ -34,8 +34,11 @@
 </template>
 
 <script>
-import Cards from '../fragments/Cards'
+import { RouterPush } from '../Mixins/RouterPush.js';
+import Cards from '../fragments/Cards';
+import { mapState } from "vuex";
 export default {
+    mixins: [RouterPush],
     components:{
         'cards-component':Cards,
     },
@@ -58,6 +61,7 @@ export default {
     },
     mounted(){
         $('body, html').animate({scrollTop: '0px'}, 1100);
+        this.currentUrl();
     },
     data() {
         return {

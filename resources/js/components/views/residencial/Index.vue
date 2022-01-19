@@ -50,6 +50,8 @@
 </template>
 
 <script>
+import { RouterPush } from '../Mixins/RouterPush.js';
+import { mapState } from "vuex";
 import Cards from '../fragments/Cards';
 import CradInternet from '../fragments/CardInternetTv';
 import CradTest1 from '../fragments/Carstest1';
@@ -57,6 +59,7 @@ import packInternetTV from '../packs/residencial/packInternetTV.json';
 import packInternet from '../packs/residencial/packInternet.json';
 import modalPack from '../fragments/ModalCard';
 export default {
+    mixins: [RouterPush],
     components:{
         'cards-component':Cards,
         'card-internettv-component':CradInternet,
@@ -83,6 +86,7 @@ export default {
     mounted(){
         this.getTypeCard(1);
         $('body, html').animate({scrollTop: '0px'}, 1100);
+        this.currentUrl();
     },
     data() {
         return {
@@ -90,6 +94,9 @@ export default {
             packTotal: [],
             selectPack:null
         }
+    },
+    computed:{
+        ...mapState('menu',['activeMenu']),
     },
     methods:{
         openModal(pack){

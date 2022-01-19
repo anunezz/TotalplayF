@@ -159,10 +159,13 @@
 </template>
 
 <script>
+import { RouterPush } from '../Mixins/RouterPush.js';
+import { mapState } from "vuex";
 import national from './National';
 import frontier from './Frontier';
 
 export default {
+    mixins: [RouterPush],
     components:{
         'national-component': national,
         'frontier-component': frontier
@@ -191,6 +194,13 @@ export default {
     },
     mounted() {
         $('body, html').animate({scrollTop: '0px'}, 1100);
+        this.currentUrl();
     },
+    computed:{
+        ...mapState('menu',['activeMenu']),
+        urlPath(){
+            return this.$router.history.current.path;
+        }
+    }
 }
 </script>

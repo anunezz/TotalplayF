@@ -11,42 +11,51 @@
 
             <div class="collapse navbar-collapse navbar-nav text-center text-sm-center" id="navbarNav">
                 <ul class="nav navbar-nav animatedd fastt fadeInn" :class="{ 'mc-auto': (screenWidth <= 991 ),'ml-auto': (screenWidth >= 992 )}">
-                    <li @click="linkss" class="nav-item">
-                        <router-link to="/">
+                    <li @click="currentUrl(urlPath)" class="nav-item" :class="{ 'active': ( activeMenu == 0 ) }">
+                        <router-link to="/" id="nav-item-nexmun" >
                             <a class="nav-link">
                                 <span id="nexmun"> Nexmun </span>
                             </a>
                         </router-link>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span id="netflix"> Totalplay + Netflix </span>
+                    <li class="nav-item dropdown" :class="{ active: ( activeMenu === 1 ) }">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" type="button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id="residencial"> Totalplay + Residencial </span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <router-link  @click="currentUrl(urlPath)" to="/residencial/internet+tv">
+                                <a class="dropdown-item">Internet + TV</a>
+                            </router-link>
+                            <router-link @click="currentUrl(urlPath)" to="/residencial/internet">
+                                <a class="dropdown-item">Internet</a>
+                            </router-link>
                         </div>
                     </li>
-                    <li @click="linkss" class="nav-item">
-                        <router-link to="/residencial">
-                            <a class="nav-link dropdown-toggle">
-                                <span id="residencial"> Totalplay + Residencial </span>
-                            </a>
-                        </router-link>
+                    <li class="nav-item dropdown" :class="{ active: ( activeMenu === 2 ) }">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown2" type="button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id="netflix"> Totalplay + Netflix </span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <router-link  @click="currentUrl(urlPath)" to="/netflix">
+                                <a class="dropdown-item">Internet + TV</a>
+                            </router-link>
+                            <router-link @click="currentUrl(urlPath)" to="/netflix">
+                                <a class="dropdown-item">Internet</a>
+                            </router-link>
+                        </div>
                     </li>
-                    <li @click="linkss" class="nav-item">
-                        <router-link to="/netflix">
-                            <a class="nav-link">
-                                <span id="netflix"> Totalplay + Netflix </span>
-                            </a>
-                        </router-link>
-                    </li>
-                    <li @click="linkss" class="nav-item">
-                        <router-link to="/amazon">
-                            <a class="nav-link">
-                                <span id="amazon"> Totalplay + Amazon Prime </span>
-                            </a>
-                        </router-link>
+                    <li class="nav-item dropdown" :class="{ active: ( activeMenu === 3 ) }">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown3" type="button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id="amazon"> Totalplay + Amazon Prime </span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <router-link  @click="currentUrl(urlPath)" to="/amazon-prime">
+                                <a class="dropdown-item">Internet + TV</a>
+                            </router-link>
+                            <router-link @click="currentUrl(urlPath)" to="/amazon-prime">
+                                <a class="dropdown-item">Internet</a>
+                            </router-link>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -57,9 +66,16 @@
 </template>
 
 <script>
-import { RouterPush } from '../Mixins/RouterPush.js';
+import { mapState } from "vuex";
+import { RouterPush } from '../Mixins/RouterPush';
 export default {
-mixins: [RouterPush]
+mixins:[RouterPush],
+computed:{
+    ...mapState('menu',['activeMenu']),
+    urlPath(){
+        return this.$router.history.current.path;
+    }
+}
 }
 </script>
 
@@ -79,11 +95,21 @@ mixins: [RouterPush]
 .nav-link:hover {
     outline:none;
     text-decoration: none;
-    border-bottom: 2px solid #ffc107;
-     transition: 0.8s;
+    border-bottom: 3.5px solid #ffc107;
+    /* animation: animate 4s linear ease-in-out; */
+    transition-delay: 1s ease;
+}
+
+@keyframes animate {
+    0%{
+        background: green;
+    }
+    100%{
+        background: red;
+    }
 }
 
 .active > a.nav-link {
-    border-bottom: 2px solid #ffc107;
+    border-bottom: 3.5px solid #ffc107;
 }
 </style>
